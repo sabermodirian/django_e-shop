@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-HOME PAGE
-</body>
-</html>
+{% if user.is_authenticated %}
+    <h1>با موفقیت وارد شدید</h1>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">خروج</button>
+    </form>
+{% else %}
+    <a href="{% url 'login' %}">ورود</a>
+{% endif %}
