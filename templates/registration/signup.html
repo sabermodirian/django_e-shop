@@ -1,5 +1,19 @@
-<form action="" method="post">
+
+
+{% extends '_base.html' %}
+<head>
+    <title>ایجاد حساب(ثبت نام بفرمایید)</title>
+</head>
+{% block page_titile %}
+Sign Up
+{% endblock %}
+
+{% block content %}
+   <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Sign Up">
 </form>
+
+{% endblock %}
+

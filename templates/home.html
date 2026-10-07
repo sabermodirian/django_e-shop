@@ -1,5 +1,12 @@
-{% if user.is_authenticated %}
-    <h1>با موفقیت وارد شدید</h1>
+{% extends '_base.html' %}
+
+{% block page_title %}
+	WelCome To HOMEPAGE
+{% endblock %}
+{% block content %}
+	{% if user.is_authenticated %}
+        <h1>WelCome To HOMEPAGE</h1>
+    <h2>با موفقیت وارد شدید</h2>
     <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
         <button type="submit">خروج</button>
@@ -7,3 +14,5 @@
 {% else %}
     <a href="{% url 'login' %}">ورود</a>
 {% endif %}
+
+{% endblock %}

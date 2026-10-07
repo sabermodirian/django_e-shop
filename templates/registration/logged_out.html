@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+{% extends '_base.html' %}
 <head>
-    <meta charset="UTF-8">
     <title>خروج از حساب</title>
 </head>
-<body>
+{% block page_titile %}
+    Logged Out
+{% endblock %}
+
+{% block content %}
     <h1>با موفقیت خارج شدید</h1>
 
     <a href="{% url 'login' %}">
         ورود دوباره
     </a>
-</body>
-</html>
+
+{% endblock %}
+
