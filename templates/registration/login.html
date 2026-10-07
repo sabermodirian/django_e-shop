@@ -1,8 +1,7 @@
 
-
-
-
 {% extends '_base.html' %}
+{% load crispy_forms_tags %}
+
 <head>
     <title>ورود </title>
 </head>
@@ -13,7 +12,7 @@ Login
 {% block content %}
   <form action="" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
     <input type="submit" value="Log In">
 </form>
 
