@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
-from django.conf.global_settings import AUTH_USER_MODEL , LOGIN_REDIRECT_URL , LOGOUT_REDIRECT_URL
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -58,11 +56,17 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+	# middlewareهای پیش‌فرض پروژه
+	
+	'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+	
+	# middleware موردنیاز django-allauth
+	"allauth.account.middleware.AccountMiddleware" ,
+	
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -77,7 +81,10 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',
+	            
+	            # `allauth` needs this from django
+	            'django.template.context_processors.request' ,
+	            
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -87,11 +94,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+AUTHENTICATION_BACKENDS = [
+   
+    # Needed to log in by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+    
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-
 
 DATABASES = {
     "default": {
@@ -151,7 +165,24 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #acconts config
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
-LOGIN_REDIRECT_URL = "/" # home
+ACCOUNT_LOGIN_METHODS = {"email"}
+
+ACCOUNT_SIGNUP_FIELDS = [
+	"username",
+    "email*",
+    "password1*",
+    "password2*",
+]
+
+LOGIN_REDIRECT_URL = "/"
+
 LOGIN_URL = "/accounts/login/"
 LOGOUT_REDIRECT_URL = None
+
+# EMAIL_BACKEND config:
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+DEFAULT_FROM_EMAIL = "noreply@example.com"
+
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+
 
