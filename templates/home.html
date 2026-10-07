@@ -1,19 +1,30 @@
-{% extends '_base.html' %}
+{% extends "_base.html" %}
 {% load crispy_forms_tags %}
-{% block page_title %}
-	WelCome To HOMEPAGE
-{% endblock %}
-{% block content %}
-	{% if user.is_authenticated %}
-        <h1>WelCome To HOMEPAGE</h1>
-    <h2>با موفقیت وارد شدید</h2>
-    <form method="post" action="{% url 'account_logout' %}">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit">خروج</button>
-    </form>
-{% else %}
-    <a href="{% url 'account_login' %}">ورود</a>
-{% endif %}
 
+{% block page_title %}
+    Welcome To Homepage
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1>Welcome To Homepage</h1>
+        <h2>با موفقیت وارد شدید</h2>
+
+        <form method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">
+                خروج
+            </button>
+        </form>
+    {% else %}
+        <h1>به فروشگاه خوش آمدید</h1>
+
+        <a href="{% url 'account_login' %}" class="btn btn-primary">
+            ورود
+        </a>
+
+        <a href="{% url 'account_signup' %}" class="btn btn-success">
+            ثبت ‌نام
+        </a>
+    {% endif %}
 {% endblock %}

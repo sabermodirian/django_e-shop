@@ -183,13 +183,14 @@ ACCOUNT_SIGNUP_FIELDS = [
 LOGIN_REDIRECT_URL = "/"
 
 LOGIN_URL = "/accounts/login/"
-LOGOUT_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "/"
 
 # EMAIL_BACKEND config:
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 DEFAULT_FROM_EMAIL = "noreply@example.com"
 
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
 
 SITE_ID = 1
 
