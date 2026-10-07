@@ -7,13 +7,13 @@
 	{% if user.is_authenticated %}
         <h1>WelCome To HOMEPAGE</h1>
     <h2>با موفقیت وارد شدید</h2>
-    <form method="post" action="{% url 'logout' %}">
+    <form method="post" action="{% url 'account_logout' %}">
         {% csrf_token %}
         {{ form|crispy }}
         <button type="submit">خروج</button>
     </form>
 {% else %}
-    <a href="{% url 'login' %}">ورود</a>
+    <a href="{% url 'account_login' %}">ورود</a>
 {% endif %}
 
 {% endblock %}

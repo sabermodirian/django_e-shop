@@ -41,9 +41,15 @@ INSTALLED_APPS = [
 # Third Party Apps :
 	"crispy_forms" ,
 	"crispy_bootstrap5",
-# django-allauth:
+# # اگر social login یا email confirmation جدی می‌خوای، بهتره sites هم باشه
+    "django.contrib.sites",
+
+    # allauth
     "allauth",
     "allauth.account",
+    # اگر بعداً گوگل/… خواستی:
+    # "allauth.socialaccount",
+    # "allauth.socialaccount.providers.google",
 	
 # Developer Apps:
 	'accounts',
@@ -177,7 +183,7 @@ ACCOUNT_SIGNUP_FIELDS = [
 LOGIN_REDIRECT_URL = "/"
 
 LOGIN_URL = "/accounts/login/"
-LOGOUT_REDIRECT_URL = None
+LOGOUT_REDIRECT_URL = "home"
 
 # EMAIL_BACKEND config:
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
@@ -185,4 +191,5 @@ DEFAULT_FROM_EMAIL = "noreply@example.com"
 
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 
+SITE_ID = 1
 
