@@ -172,9 +172,17 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 ACCOUNT_LOGIN_METHODS = {"email"}
 
+# AllAuth settings:
+ACCOUNT_SESSION_REMEMBER = True #غیر فعال کردن تیک remember me برای کاربر و بطور پیش فرض کاربر را بیاد میاورد
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False # یکبار پسورد وارد کردن
+ACCOUNT_USERNAME_REQUIRED = False # برای ساخت حساب کاربری به USERNAMR نیازی نیست
+ACCOUNT_AUTHENTICATION_METHOD = 'email' # روش احراز و ورود ثبت نام را با email پیاده‌سازی کن
+ACCOUNT_EMAIL_REQUIRED = True # برای ساخت حساب کاربری به email نیاز هست
+ACCOUNT_UNIQUE_EMAIL = True # پس باید حتما email یکتا باشد چون  برای ساخت حساب کاربری  email نیاز هست
+
 ACCOUNT_SIGNUP_FIELDS = [
+	"email*",
 	"username",
-    "email*",
     "password1*",
 ]
 #Redirection accounts config:
@@ -184,9 +192,6 @@ LOGIN_URL = "/accounts/login/"
 LOGOUT_REDIRECT_URL = "/"                     # خطای 'none' نباید برگردد
 ACCOUNT_LOGOUT_REDIRECT_URL = "/logged-out/"   # بعد از تأیید خروج، برگرد به صفحهٔ پیغام
 
-# AllAuth settings:
-ACCOUNT_SESSION_REMEMBER = True #غیر فعال کردن تیک remember me برای کاربر و بطور پیش فرض کاربر را بیاد میاورد
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False #یکبار پسورد وارد کردن
 
 # EMAIL_BACKEND config:
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
