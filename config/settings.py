@@ -169,7 +169,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #acconts config
 AUTH_USER_MODEL = 'accounts.CustomUser'
-
 ACCOUNT_LOGIN_METHODS = {"email"}
 
 # AllAuth settings:
