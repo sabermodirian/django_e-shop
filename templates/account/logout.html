@@ -1,17 +1,16 @@
-{% extends '_base.html' %}
-<head>
-    <title>خروج از حساب</title>
-</head>
-{% block page_titile %}
-    Logged Out
+{% extends "_base.html" %}
+
+{% block page_title %}
+    خروج از حساب
 {% endblock %}
 
 {% block content %}
-    <h1>با موفقیت خارج شدید</h1>
+    <h1>خروج از حساب کاربری</h1>
+    <p>آیا مطمئن هستید؟</p>
 
-    <a href="{% url 'account_login' %}">
-        ورود دوباره
-    </a>
-
+    <form method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">بله، خروج</button>
+        <a href="/" class="btn btn-secondary">انصراف</a>
+    </form>
 {% endblock %}
-

@@ -10,12 +10,10 @@
         <h1>Welcome To Homepage</h1>
         <h2>با موفقیت وارد شدید</h2>
 
-        <form method="post" action="{% url 'account_logout' %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger">
-                خروج
-            </button>
-        </form>
+        <a href="{% url 'account_logout' %}" class="btn btn-danger">
+    خروج
+</a>
+
     {% else %}
         <h1>به فروشگاه خوش آمدید</h1>
 

@@ -126,7 +126,6 @@ DATABASES = {
 }
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -179,18 +178,21 @@ ACCOUNT_SIGNUP_FIELDS = [
     "password1*",
     "password2*",
 ]
-
+#Redirection accounts config:
 LOGIN_REDIRECT_URL = "/"
 
 LOGIN_URL = "/accounts/login/"
-LOGOUT_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"                     # خطای 'none' نباید برگردد
+ACCOUNT_LOGOUT_REDIRECT_URL = "/logged-out/"   # بعد از تأیید خروج، برگرد به صفحهٔ پیغام
+
+# AllAuth settings:
+ACCOUNT_SESSION_REMEMBER = True
 
 # EMAIL_BACKEND config:
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 DEFAULT_FROM_EMAIL = "noreply@example.com"
 
 ACCOUNT_EMAIL_VERIFICATION = "none"
-
 
 SITE_ID = 1
 
