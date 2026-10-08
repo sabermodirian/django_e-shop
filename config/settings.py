@@ -176,7 +176,6 @@ ACCOUNT_SIGNUP_FIELDS = [
 	"username",
     "email*",
     "password1*",
-    "password2*",
 ]
 #Redirection accounts config:
 LOGIN_REDIRECT_URL = "/"
@@ -186,7 +185,8 @@ LOGOUT_REDIRECT_URL = "/"                     # خطای 'none' نباید بر�
 ACCOUNT_LOGOUT_REDIRECT_URL = "/logged-out/"   # بعد از تأیید خروج، برگرد به صفحهٔ پیغام
 
 # AllAuth settings:
-ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_SESSION_REMEMBER = True #غیر فعال کردن تیک remember me برای کاربر و بطور پیش فرض کاربر را بیاد میاورد
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False #یکبار پسورد وارد کردن
 
 # EMAIL_BACKEND config:
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
