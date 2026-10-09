@@ -11,16 +11,20 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+from environs import Env
+
+# for enviroment variables:
+env = Env()
+env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-b764$#(&o4o((cvy!z^nsseq5@erq#e^0%5r5a(%c24*f^*sde'
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -169,15 +173,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #acconts config
 AUTH_USER_MODEL = 'accounts.CustomUser'
-ACCOUNT_LOGIN_METHODS = {"email"}
+ACCOUNT_LOGIN_METHODS = {"email"}  # روش جدیداحراز و ورود ثبت نام را با email پیاده‌سازی کن
 
 # AllAuth settings:
-ACCOUNT_SESSION_REMEMBER = True #غیر فعال کردن تیک remember me برای کاربر و بطور پیش فرض کاربر را بیاد میاورد
+ACCOUNT_SESSION_REMEMBER = True #غیر فعال کردن تیک remember me برای کاربر و به‌طور پیش فرض کاربر را بیاد میاورد
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False # یکبار پسورد وارد کردن
 ACCOUNT_USERNAME_REQUIRED = False # برای ساخت حساب کاربری به USERNAMR نیازی نیست
-ACCOUNT_AUTHENTICATION_METHOD = 'email' # روش احراز و ورود ثبت نام را با email پیاده‌سازی کن
+# ACCOUNT_AUTHENTICATION_METHOD ='email' # روش قدیمی احراز و ورود ثبت نام را با email پیاده‌سازی کن
 ACCOUNT_EMAIL_REQUIRED = True # برای ساخت حساب کاربری به email نیاز هست
-ACCOUNT_UNIQUE_EMAIL = True # پس باید حتما email یکتا باشد چون  برای ساخت حساب کاربری  email نیاز هست
+ACCOUNT_UNIQUE_EMAIL = True # پس باید حتما email یکتا باشد چون برای ساخت حساب کاربری email نیاز هست
 
 ACCOUNT_SIGNUP_FIELDS = [
 	"email*",

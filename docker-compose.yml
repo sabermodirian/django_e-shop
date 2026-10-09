@@ -8,16 +8,26 @@ services:
     ports:
       - "8000:8000"
     environment:
+      DJANGO_SECRET_KEY: "django-insecure-b764$$#(&o4o((cvy!z^nsseq5@erq#e^0%5r5a(%c24*f^*sde"
       DB_NAME: ${POSTGRES_DB:-app}
       DB_USER: ${POSTGRES_USER:-app}
       DB_PASSWORD: ${POSTGRES_PASSWORD:-change-me-in-development}
       DB_HOST: db
       DB_PORT: "5432"
+
       POSTGRES_DB: ${POSTGRES_DB:-app}
       POSTGRES_USER: ${POSTGRES_USER:-app}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me-in-development}
       POSTGRES_HOST: db
       POSTGRES_PORT: "5432"
+#    dns:
+#      - 10.202.10.202
+#      - 10.202.10.102
+#      - 10.202.10.10
+#      - 178.22.122.100
+#      - 185.51.200.2
+#      - 8.8.8.8
+#      - 1.1.1.1
     depends_on:
       db:
         condition: service_healthy
@@ -30,7 +40,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-app}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me-in-development}
     volumes:
-      - postgres_data:/var/lib/postgresql 
+      - postgres_data:/var/lib/postgresql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 5s
