@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DJANGO_DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'render.com']
 
 
 # Application definition
@@ -48,10 +48,10 @@ INSTALLED_APPS = [
 # # اگر social login یا email confirmation جدی می‌خوای، بهتره sites هم باشه
     "django.contrib.sites",
 
-    # allauth
+# allauth
     "allauth",
     "allauth.account",
-    # اگر بعداً گوگل/… خواستی:
+# اگر بعداً گوگل/… خواستی:
     # "allauth.socialaccount",
     # "allauth.socialaccount.providers.google",
 	
@@ -74,7 +74,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 	
-	# middleware موردنیاز django-allauth
+# middleware موردنیاز django-allauth
 	"allauth.account.middleware.AccountMiddleware" ,
 	
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -92,7 +92,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
 	            
-	            # `allauth` needs this from django
+	        # `allauth` needs this from django
 	            'django.template.context_processors.request' ,
 	            
                 'django.contrib.auth.context_processors.auth',
@@ -106,10 +106,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 AUTHENTICATION_BACKENDS = [
    
-    # Needed to log in by username in Django admin, regardless of `allauth`
+# Needed to log in by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
 
-    # `allauth` specific authentication methods, such as login by email
+# `allauth` specific authentication methods, such as login by email
     'allauth.account.auth_backends.AuthenticationBackend',
     
 ]

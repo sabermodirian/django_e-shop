@@ -8,6 +8,7 @@ services:
     ports:
       - "8000:8000"
     environment:
+      DJANGO_DEBUG: "True"
       DJANGO_SECRET_KEY: "django-insecure-b764$$#(&o4o((cvy!z^nsseq5@erq#e^0%5r5a(%c24*f^*sde"
       DB_NAME: ${POSTGRES_DB:-app}
       DB_USER: ${POSTGRES_USER:-app}
