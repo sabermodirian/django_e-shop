@@ -56,8 +56,9 @@ INSTALLED_APPS = [
     # "allauth.socialaccount.providers.google",
 	
 # Developer Apps:
-	'accounts',
-	'pages',
+	'accounts',  # accounts.apps.AccountsConfig
+	'pages',     # pages.apps.PagesConfig
+	'products',  # products.apps.ProductsConfig
 ]
 
 # Crispy Forms settings:
