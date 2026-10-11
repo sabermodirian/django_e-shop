@@ -12,5 +12,4 @@ from .models import Product    # == from Product.models import Product
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
 	model = Product
-	
-	List_display = ('title', 'datetime_created', 'datetime_modified' , 'price' , 'active' ,)
+	list_display = ('title', 'datetime_created', 'datetime_modified' , 'price' , 'active' ,)
