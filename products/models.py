@@ -1,5 +1,6 @@
 from django.db import models
-from django.template.defaultfilters import title
+
+from django.shortcuts import reverse
 
 
 # Create your models here.
@@ -15,3 +16,6 @@ class Product(models.Model):
 	
 	def __str__(self):
 		return f'name of product : {self.title}'
+	
+	def get_absolute_url(self):
+		return reverse('product_details' , args = [self.pk])
