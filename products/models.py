@@ -30,11 +30,11 @@ class Comment(models.Model):
 	)
 	cmmnt_body_txt = models.TextField()
 	PRODUCT_STARS = [
-		(1,'Very Bad'),
-		(2, 'Bad'),
-		(3, 'Normal'),
-		(4, 'Good'),
-		(5, 'Perfect'),
+		("1",'Very Bad'),
+		("2", 'Bad'),
+		("3", 'Normal'),
+		("4", 'Good'),
+		("5", 'Perfect'),
 	]
 	stars_point_prdct = models.CharField(max_length = 10 , choices = PRODUCT_STARS)
 	cmmnt_created_at = models.DateTimeField(auto_now_add = True)
