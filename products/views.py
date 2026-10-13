@@ -1,6 +1,6 @@
 from django.views import generic
 
-
+from products.forms import CommentForm
 from products.models import Product
 # Create your views here.
 
@@ -15,4 +15,34 @@ class ProductDetailsView(generic.DetailView):
 	template_name = 'products/product_details.html'
 	context_object_name = 'product'
 	
+	# def get_context_data(self, **kwargs):
+	# 	context = super().get_context_data(**kwargs)
+	# 	context['comment_form'] = CommentForm()
+	# 	return context
+	
+	def get_context_data(self , **kwargs) :
+		"""
+		ساخت و تکمیل داده‌های قابل ارسال به قالب جزئیات محصول.
 
+		This method builds and extends the context data sent to the
+		product details template.
+
+		Returns:
+			dict: دیکشنری شامل اطلاعات محصول و فرم ثبت نظر.
+				  A dictionary containing the product data and comment form.
+		"""
+		
+		# دریافت context پیش‌فرض از کلاس والد DetailView
+		# Get the default context data from the parent DetailView class.
+		context = super().get_context_data(**kwargs)
+		
+		# ایجاد فرم خالی ثبت نظر و اضافه‌کردن آن به context
+		# Create an empty comment form and add it to the context.
+		context["comment_form"] = CommentForm()
+		
+		# برگرداندن context تکمیل‌شده به قالب
+		# Return the extended context to the template.
+		return context
+
+
+	
