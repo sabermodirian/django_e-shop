@@ -1,3 +1,6 @@
+from itertools import product
+
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.shortcuts import reverse
 
@@ -17,3 +20,23 @@ class Product(models.Model):
 	
 	def get_absolute_url(self):
 		return reverse('product_details' , args = [self.pk])
+	
+class Comment(models.Model):
+	product_cmmnt = models.ForeignKey(
+		Product, on_delete = models.CASCADE, related_name = 'rel_prdct_cmmnt'
+	)
+	author_cmmnt = models.ForeignKey(
+		get_user_model(), on_delete = models.CASCADE, related_name = 'rel_cmmnt'
+	)
+	cmmnt_body_txt = models.TextField()
+	PRODUCT_STARS = [
+		(1,'Very Bad'),
+		(2, 'Bad'),
+		(3, 'Normal'),
+		(4, 'Good'),
+		(5, 'Perfect'),
+	]
+	stars_point_prdct = models.CharField(max_length = 10 , choices = PRODUCT_STARS)
+	cmmnt_created_at = models.DateTimeField(auto_now_add = True)
+	cmmnt_modified_at = models.DateTimeField(auto_now = True)
+	status_cmmnt = models.BooleanField(default = True)
