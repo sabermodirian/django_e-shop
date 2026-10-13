@@ -1,4 +1,3 @@
-from itertools import product
 
 from django.contrib.auth import get_user_model
 from django.db import models
@@ -23,10 +22,10 @@ class Product(models.Model):
 	
 class Comment(models.Model):
 	product_cmmnt = models.ForeignKey(
-		Product, on_delete = models.CASCADE, related_name = 'rel_prdct_cmmnt'
+		Product, on_delete = models.CASCADE, related_name = 'rel_prdct_cmmnts'
 	)
 	author_cmmnt = models.ForeignKey(
-		get_user_model(), on_delete = models.CASCADE, related_name = 'rel_cmmnt'
+		get_user_model(), on_delete = models.CASCADE, related_name = 'rel_athr_cmmnt'
 	)
 	cmmnt_body_txt = models.TextField()
 	PRODUCT_STARS = [
