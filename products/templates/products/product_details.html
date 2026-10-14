@@ -159,7 +159,7 @@
                                                     <div class="col-lg-8 m-auto">
                                                         <span class="reply-title pull-right">نظر خود را بنویسید</span>
                                                         <br>
-                                                        <form action="" method="post">
+                                                        <form action="{% url 'create_cmmnt' product.id %}" method="post">
                                                             {% csrf_token %}
                                                             {{ comment_form|crispy }}
                                                             <input type="submit" value="ارسال نظر">

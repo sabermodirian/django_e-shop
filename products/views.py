@@ -1,3 +1,5 @@
+from django.shortcuts import get_object_or_404
+from django.urls import reverse
 from django.views import generic
 
 from products.forms import CommentForm
@@ -48,9 +50,16 @@ class CommentCreateView(generic.CreateView):
 	model = Comment
 	form_class = CommentForm
 	
-	def form_valid(self, form):
+	def get_success_url(self):
+		return reverse('product_list')
+	
+	def form_valid(self , form , obj_prdct = None):
 		obj_frm_cmmnt_mdl = form.save(commit = False)
 		obj_frm_cmmnt_mdl.author_cmmnt = self.request.user
+		product_id = int(self.kwargs['prdct_id'])
+		prdct = get_object_or_404(Product , id=product_id)
+		obj_frm_cmmnt_mdl.product_cmmnt = prdct
+
 		return super().form_valid(form)
 	 
 	
