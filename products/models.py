@@ -39,3 +39,6 @@ class Comment(models.Model):
 	cmmnt_created_at = models.DateTimeField(auto_now_add = True)
 	cmmnt_modified_at = models.DateTimeField(auto_now = True)
 	status_cmmnt = models.BooleanField(default = True)
+	
+	def get_absolute_url(self):
+		return reverse('product_details' , args = [self.pk])
