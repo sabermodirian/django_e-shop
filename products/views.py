@@ -1,7 +1,7 @@
 from django.views import generic
 
 from products.forms import CommentForm
-from products.models import Product
+from products.models import Comment , Product
 # Create your views here.
 
 class ProductListView(generic.ListView):
@@ -44,5 +44,13 @@ class ProductDetailsView(generic.DetailView):
 		# Return the extended context to the template.
 		return context
 
-
+class CommentCreateView(generic.CreateView):
+	model = Comment
+	form_class = CommentForm
+	
+	def form_valid(self, form):
+		obj_frm_cmmnt_mdl = form.save(commit = False)
+		obj_frm_cmmnt_mdl.author_cmmnt = self.request.user
+		return super().form_valid(form)
+	 
 	
