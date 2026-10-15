@@ -18,6 +18,7 @@ class Product(models.Model):
 		return f'name of product : {self.title}'
 	
 	def get_absolute_url(self):
+		# برو به  صفحه ی product_details و آی‌دی محصولِ  رو بفرست!
 		return reverse('product_details' , args = [self.pk])
 
 # todo :  کلا کار Custom Manager اینست که اون درخواستهای (کوئری) ما که مد نظر ماست را بصورت پیشفرض اجرا میکنه
@@ -53,7 +54,7 @@ class Comment(models.Model):
 	status_cmmnt = models.BooleanField(default = True)
 	
 	# Manager ها :
-	objects = models.manager() # : default manager
+	objects = models.Manager() # : default manager
 	status_cmmnt_manager = ActiveCommentManager # : Custom Manager
 	
 	def get_absolute_url(self) :
