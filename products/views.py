@@ -52,7 +52,7 @@ class CommentCreateView(generic.CreateView):
 	
 	# def get_success_url(self) :
 	# 	# self.object همان کامنتِ تازه ذخیره‌شده است!
-	# 	# از طریق رابطه اش (product_cmmnt) به محصول دسترسی داریم
+	# 	# از طریق رابطه اش (related_name = 'rel_prdct_cmmnts') به محصول دسترسی داریم
 	# 	return reverse('product_details' , kwargs = {'pk' : self.object.product_cmmnt.pk})
 	
 	def form_valid(self , form , obj_prdct = None):

@@ -3,6 +3,8 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.shortcuts import reverse
 
+
+
 # Create your models here.
 
 class Product(models.Model):
