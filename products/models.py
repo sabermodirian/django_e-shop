@@ -19,6 +19,14 @@ class Product(models.Model):
 	
 	def get_absolute_url(self):
 		return reverse('product_details' , args = [self.pk])
+
+# todo :  کلا کار Custom Manager اینست که اون درخواستهای (کوئری) ما که مد نظر ماست را بصورت پیشفرض اجرا میکنه
+class ActiveCommentManager(models.Manager):
+	""" یک Custom Manager برای active/deavtivation فیلد
+	status_cmmnt = models.BooleanField(default = True)
+	در table(کلاس) Comment"""
+	def get_queryset(self):
+		return super(ActiveCommentManager, self).get_queryset().filter(status_cmmnt = True)
 	
 class Comment(models.Model):
 	product_cmmnt = models.ForeignKey(
@@ -38,7 +46,15 @@ class Comment(models.Model):
 	stars_point_prdct = models.CharField(max_length = 10 , choices = PRODUCT_STARS)
 	cmmnt_created_at = models.DateTimeField(auto_now_add = True)
 	cmmnt_modified_at = models.DateTimeField(auto_now = True)
+	
+	# Comment.objects.filter(active=True) : objects همان  Default Manager است
+	# Comment.active_cmmnts_manager       : Custom Manager or Comment.xxx یا هر چیز دیگری میتوان نوشت
+	""" ساخت Custom Manager برای status_cmmnt در بالای کلاس کامنت میباشد """
 	status_cmmnt = models.BooleanField(default = True)
+	
+	# Manager ها :
+	objects = models.manager() # : default manager
+	status_cmmnt_manager = ActiveCommentManager # : Custom Manager
 	
 	def get_absolute_url(self) :
 		# به جای اینکه self.pk (آی‌دی کامنت) رو بفرستی، آی‌دی محصولِ کامنت رو بفرست!
