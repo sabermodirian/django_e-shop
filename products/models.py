@@ -40,5 +40,6 @@ class Comment(models.Model):
 	cmmnt_modified_at = models.DateTimeField(auto_now = True)
 	status_cmmnt = models.BooleanField(default = True)
 	
-	def get_absolute_url(self):
-		return reverse('product_details' , args = [self.pk])
+	def get_absolute_url(self) :
+		# به جای اینکه self.pk (آی‌دی کامنت) رو بفرستی، آی‌دی محصولِ کامنت رو بفرست!
+		return reverse('product_details' , args = [self.product_cmmnt.pk])

@@ -50,8 +50,10 @@ class CommentCreateView(generic.CreateView):
 	model = Comment
 	form_class = CommentForm
 	
-	# def get_success_url(self):
-	# 	return reverse('product_list')
+	# def get_success_url(self) :
+	# 	# self.object همان کامنتِ تازه ذخیره‌شده است!
+	# 	# از طریق رابطه اش (product_cmmnt) به محصول دسترسی داریم
+	# 	return reverse('product_details' , kwargs = {'pk' : self.object.product_cmmnt.pk})
 	
 	def form_valid(self , form , obj_prdct = None):
 		obj_frm_cmmnt_mdl = form.save(commit = False)
