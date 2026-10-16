@@ -19,16 +19,16 @@ msgstr ""
 
 #: .\templates\products\product_details.html:56
 msgid "Add To Cart"
-msgstr ""
+msgstr "اضافه به سبد خرید"
 
 #: .\templates\products\product_details.html:76
 msgid "Product Description"
-msgstr ""
+msgstr "توضیحات محصول"
 
 #: .\templates\products\product_details.html:165
 msgid "Write your comment"
-msgstr ""
+msgstr "نظر خود را بنویسید"
 
 #: .\templates\products\product_details.html:170
 msgid "Submit"
-msgstr ""
+msgstr "ارسال نظر"
