@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 21:12+0330\n"
+"POT-Creation-Date: 2026-10-16 21:42+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: .\templates\products\product_details.html:18
-
 msgid "Product details of"
 msgstr "توضیحات محصول"
 
@@ -38,6 +37,20 @@ msgstr "دسته بندی ها"
 #: .\templates\products\product_details.html:77
 msgid "Product Description"
 msgstr "توضیحات محصول"
+
+#: .\templates\products\product_details.html:85
+
+msgid "Registered comments"
+msgstr "نظرات ثبت شده"
+
+#: .\templates\products\product_details.html:125
+#: .\templates\products\product_details.html:126
+msgid "Comment(s) for"
+msgstr "نظر برای"
+
+#: .\templates\products\product_details.html:125
+msgid "sent done."
+msgstr "ارسال شده است"
 
 #: .\templates\products\product_details.html:166
 msgid "Write your comment"
