@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 21:58+0330\n"
+"POT-Creation-Date: 2026-10-16 22:20+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,87 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: .\models.py:11
+msgid "Product's Name"
+msgstr "نام محصول"
+
+#: .\models.py:12
+
+msgid "Product's Features"
+msgstr "ویژگی های  محصول"
+
+#: .\models.py:13
+msgid "Price"
+msgstr "قیمت"
+
+#: .\models.py:14
+
+msgid "confirmed Product"
+msgstr "تایید شده"
+
+#: .\models.py:17
+
+msgid "Product Created At"
+msgstr " محصول ایجاد شده در "
+
+#: .\models.py:18
+msgid "Product Modified At"
+msgstr "تغییر یافته در"
+
+#: .\models.py:38
+msgid "Product's Comment"
+msgstr "محصول مورد نظر"
+
+#: .\models.py:41
+
+msgid "Comment's Author"
+msgstr "درج نظر توسط"
+
+#: .\models.py:42
+
+msgid "Comment's Text"
+msgstr "متن دیدگاه"
+
+#: .\models.py:44
+msgid "Very Bad"
+msgstr "خیلی بد"
+
+#: .\models.py:45
+msgid "Bad"
+msgstr "بد"
+
+#: .\models.py:46
+msgid "Normal"
+msgstr "معمولی"
+
+#: .\models.py:47
+msgid "Good"
+msgstr "خوب"
+
+#: .\models.py:48
+msgid "Perfect"
+msgstr "عالی"
+
+#: .\models.py:51
+msgid "What's Your Comment's Point Stars"
+msgstr "روی این محصول چه دیدگاهی دارید "
+
+#: .\models.py:52
+msgid "Comment Created At"
+msgstr "نظر ایجاد شده در"
+
+#: .\models.py:53
+msgid "Comment Modified At"
+msgstr "نظر ویرایش شده در"
+
+#: .\models.py:58
+
+msgid "Confirmed Comment"
+msgstr "نظر تایید شده است"
+
 #: .\templates\products\product_details.html:18
 msgid "Product details of"
-msgstr "توضیحات محصول"
+msgstr "جزئیات محصول"
 
 #: .\templates\products\product_details.html:44
 #: .\templates\products\product_details.html:46
