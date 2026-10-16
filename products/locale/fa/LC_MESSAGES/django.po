@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 13:22+0330\n"
+"POT-Creation-Date: 2026-10-16 21:12+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\templates\products\product_details.html:56
+#: .\templates\products\product_details.html:18
+
+msgid "Product details of"
+msgstr "توضیحات محصول"
+
+#: .\templates\products\product_details.html:44
+#: .\templates\products\product_details.html:46
+msgid "$"
+msgstr "تومان"
+
+#: .\templates\products\product_details.html:57
 msgid "Add To Cart"
 msgstr "اضافه به سبد خرید"
 
-#: .\templates\products\product_details.html:76
+#: .\templates\products\product_details.html:61
+msgid "Categories"
+msgstr "دسته بندی ها"
+
+#: .\templates\products\product_details.html:77
 msgid "Product Description"
 msgstr "توضیحات محصول"
 
-#: .\templates\products\product_details.html:165
+#: .\templates\products\product_details.html:166
 msgid "Write your comment"
 msgstr "نظر خود را بنویسید"
 
-#: .\templates\products\product_details.html:170
+#: .\templates\products\product_details.html:171
 msgid "Submit"
 msgstr "ارسال نظر"
