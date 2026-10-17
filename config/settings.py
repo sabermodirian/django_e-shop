@@ -166,6 +166,16 @@ LANGUAGES = (
 	('sp', 'Catalonian'),
 	('de','Deuchland'),
 	)
+ 
+"""
+ برای ترجمه ی فایلهای تمپلیتی موجود در
+ root directory project:
+ (templates/account/logged_out.html , login.html ,logout.html,signup.html),
+ (templates/_base.html , templates/home.html)
+"""
+LOCALE_PATHS = (
+	'templates/locale',
+)
 
 
 # TIME_ZONE = 'UTC'
