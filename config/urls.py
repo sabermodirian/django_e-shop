@@ -24,4 +24,7 @@ urlpatterns = [path('admin/' , admin.site.urls) , path('' , include('pages.urls'
 	path("accounts/" , include("allauth.urls")) ,
 	path("logged-out/" , TemplateView.as_view(template_name = "account/logged_out.html") , name = "logged_out") ,
 	path("products/" , include('products.urls')),
+ 
+    # Rosetta (i18n)
+    path('rosetta/', include('rosetta.urls')),
 ]

@@ -43,12 +43,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+# # اگر social login یا email confirmation جدی می‌خوای، بهتره sites هم باشه
+    "django.contrib.sites",
+	
 # Third Party Apps :
 	"crispy_forms" ,
 	"crispy_bootstrap5",
-# # اگر social login یا email confirmation جدی می‌خوای، بهتره sites هم باشه
-    "django.contrib.sites",
-
+	"rosetta",
+	
 # allauth
     "allauth",
     "allauth.account",
@@ -155,7 +158,14 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
 # LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'fa'
+LANGUAGE_CODE = 'fa-ir'
+
+LANGUAGES = (
+	('en' , 'English'),
+	('fa' , 'Persian'),
+	('sp', 'Catalonian'),
+	('de','Deuchland'),
+	)
 
 
 # TIME_ZONE = 'UTC'
