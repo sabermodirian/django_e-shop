@@ -69,6 +69,13 @@ INSTALLED_APPS = [
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+# for messages framework:
+from django.contrib.messages import constants as msg_cnstnts
+MESSAGE_TAGS = {
+	msg_cnstnts.ERROR:'danger',
+	
+}
+
 
 MIDDLEWARE = [
 	# middlewareهای پیش‌فرض پروژه

@@ -1,10 +1,19 @@
-from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404 , render
 from django.urls import reverse
 from django.views import generic
+from django.contrib import messages
 
 from products.forms import CommentForm
 from products.models import Comment , Product
+
 # Create your views here.
+
+def test_msg(request):
+	messages.success(request , 'This is a succes message.')
+	messages.error(request , 'This is a error message.')
+	messages.warning(request , 'This is a warning message.')
+	return render(request , 'products/test_hello.html')
 
 class ProductListView(generic.ListView):
 	# model = Product

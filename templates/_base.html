@@ -130,6 +130,18 @@
 </header>
 <!-- Header End -->
 
+<!-- django messages framework -->
+<!-- https://docs.djangoproject.com/en/6.1/ref/contrib/messages/ -->
+{% if messages %}
+<ul class="container-fluid">
+    {% for message in messages %}
+    <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<!-- django messages framework -->
+
 <main class="container py-4">
     {% block content %}
     {% endblock %}
