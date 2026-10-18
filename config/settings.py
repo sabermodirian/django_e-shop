@@ -73,8 +73,11 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 from django.contrib.messages import constants as msg_cnstnts
 MESSAGE_TAGS = {
 	msg_cnstnts.ERROR:'danger',
+	msg_cnstnts.SUCCESS:'success',
+	msg_cnstnts.WARNING:'warning',
+	msg_cnstnts.INFO:'info',
 	
-}
+	}
 
 
 MIDDLEWARE = [
