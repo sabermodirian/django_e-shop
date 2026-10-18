@@ -79,7 +79,6 @@ MESSAGE_TAGS = {
 	
 	}
 
-
 MIDDLEWARE = [
 	# middlewareهای پیش‌فرض پروژه
 	
