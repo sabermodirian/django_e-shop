@@ -23,12 +23,6 @@ class Cart:
 		"""
 		self.cart = cart
 		
-		# self.cart = self.session.setdefault('cart_obj' , {})  # معادل کل خطوط 9 تا 22
-	
-# class Cart:                               # معادل کل خطوط این فایل :
-#     def __init__(self, request):
-#         self.request = request
-#         self.session = request.session
-#         self.cart = self.session.setdefault('cart_obj', {})
+		
 
 
