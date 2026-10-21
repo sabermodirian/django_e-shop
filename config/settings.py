@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
+import cart.apps
 from environs import Env
 
 # for enviroment variables:
@@ -55,7 +56,7 @@ INSTALLED_APPS = [
 # allauth
     "allauth",
     "allauth.account",
-# اگر بعداً گوگل/… خواستی:
+# اگر گوگل/… خواستی:
     # "allauth.socialaccount",
     # "allauth.socialaccount.providers.google",
 	
@@ -63,6 +64,7 @@ INSTALLED_APPS = [
 	'accounts',  # accounts.apps.AccountsConfig
 	'pages',     # pages.apps.PagesConfig
 	'products',  # products.apps.ProductsConfig
+	'cart',      # cart.apps.CartConfig
 ]
 
 # Crispy Forms settings:

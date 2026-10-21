@@ -32,12 +32,7 @@
     </title>
 </head>
 <body dir="rtl">
-{#{% if user.is_authenticated %}#}
-{#    <span>Halo {{ user.email }}</span> | <a href="{% url 'account_logout' %}">LogOut</a>#}
-{#{% else %}#}
-{#    <a href="{% url 'account_login' %}">logIn</a> | <a href="{% url 'account_signup' %}">SignUp</a>#}
-{##}
-{#{% endif %}#}
+
 
 <!-- Header Start -->
 <header class="header">
@@ -130,7 +125,7 @@
 </header>
 <!-- Header End -->
 
-<!-- django messages framework -->
+<!--Start for django messages framework -->
 <!-- https://docs.djangoproject.com/en/6.1/ref/contrib/messages/ -->
 {% if messages %}
 <ul class="container-fluid">
@@ -140,7 +135,7 @@
 </ul>
 {% endif %}
 
-<!-- django messages framework -->
+<!--End of django messages framework -->
 
 <main class="container py-4">
     {% block content %}
