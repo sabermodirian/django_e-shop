@@ -9,12 +9,12 @@ from products.models import Comment , Product
 
 # Create your views here.
 
-def test_msg(request):
-	messages.success(request , 'This is a succes message.')
-	messages.error(request , 'This is a error message.')
-	messages.warning(request , 'This is a warning message.')
-	messages.info(request , 'This is a information message.')
-	return render(request , 'products/test_hello.html')
+# def test_msg(request):
+# 	messages.success(request , 'This is a succes message.')
+# 	messages.error(request , 'This is a error message.')
+# 	messages.warning(request , 'This is a warning message.')
+# 	messages.info(request , 'This is a information message.')
+# 	return render(request , 'products/test_hello.html')
 
 class ProductListView(generic.ListView):
 	# model = Product
