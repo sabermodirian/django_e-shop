@@ -1,3 +1,5 @@
+from products.models import Product
+
 '''
 بدان وآگاه باش که هربار که یک شیئ ازین کلاس Cart میسازیم
  یعنی یک سبد خرید برای آن کاربرخاص ایجاد میشود ولی
@@ -10,6 +12,7 @@ class Cart:
     """🛒 Manage the user's shopping cart inside Django session."""
     
     def __init__(self, request):
+	    # Initialize Cart class
         self.request = request
         self.session = request.session
         
@@ -55,3 +58,15 @@ class Cart:
     def save(self):
 	    """هر جا بعداً self.cart را تغییر دادی، بیا و در همین سشن مربوطه ذخیره اش کن  حتما """
 	    self.session.modified = True
+	
+	def __iter__(self):
+		''' جهت دادن قابلیت ایتریت کردن در یک شیء از کلاس'''
+		prdct_ids = self.cart.keys()
+		products_objs = Product.objects.filter(id__in = prdct_ids )
+		cart_obj_cln = self.cart.copy() # clone of Cart's object
+		
+		for prdct in products_objs:
+			cart_obj_cln[str(prdct.id)]['prdct_obj'] = prdct
+			
+	 
+	 
