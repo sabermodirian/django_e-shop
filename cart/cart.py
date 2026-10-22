@@ -42,10 +42,16 @@ class Cart:
         else :
 	        # اگر ازقبل محصول وجود داشت در سبد خرید پس تعداد جدید را با تعداددرخواستی قبلی جمع میکنیم
             self.cart[prdct_id]['quantity'] += quantity
-	
-	    # هر جا بعداً self.cart سبد خرید را تغییر دادی، این خط را فراموش نکن, و حتما session را آپدیت کن و حتما متد save را فراخوانی کن :
+		    # هر جا بعداً self.cart سبد خرید را تغییر دادی، این خط را فراموش نکن, و حتما session را آپدیت کن و حتما متد save را فراخوانی کن :
         self.save()
         
+    def remove_prdct(self, product):
+	    """ Remove a product from the Cart"""
+	    prdct_id = str(product.id)
+	    if  prdct_id in self.cart:
+		    del self.cart[prdct_id]
+		    self.save()
+      
     def save(self):
 	    """هر جا بعداً self.cart را تغییر دادی، بیا و در همین سشن مربوطه ذخیره اش کن  حتما """
 	    self.session.modified = True
