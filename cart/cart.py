@@ -56,7 +56,7 @@ class Cart:
 		    self.save()
       
     def save(self):
-	    """هر جا بعداً self.cart را تغییر دادی، بیا و در همین سشن مربوطه ذخیره اش کن  حتما """
+	"""هر جا بعداً self.cart را تغییر دادی، بیا و در همین سشن مربوطه ذخیره اش کن  حتما """
 	    self.session.modified = True
 	
 	def __iter__(self):
@@ -67,6 +67,9 @@ class Cart:
 		
 		for prdct in products_objs:
 			cart_obj_cln[str(prdct.id)]['prdct_obj'] = prdct
+		
+		for item in cart.values(): # Generator
+			yield item
 			
 	 
 	 
