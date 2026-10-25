@@ -79,4 +79,12 @@ class Cart:
 		""" برای پاک کردن محصولات از سبد خرید"""
 		del self.session['cart_obj']
 		self.save()
+		
+	def get_total_price_prdcts(self):
+		""" محاصبه ی قیمت کل محصولا ت رد سبد خرید"""
+		prdct_ids = self.cart.keys()
+		products_objs = Product.objects.filter(id__in = prdct_ids)
+		
+		return sum(prdct.price for prdct in products_objs )
+		
 	 
