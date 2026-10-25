@@ -74,4 +74,9 @@ class Cart:
 	def __len__(self):
 		""" در اینجا منظور از len تعداد هر محصول موجود در سبد خرید میباشد"""
 		return len(self.cart.keys())
+	
+	def clear_cart(self):
+		""" برای پاک کردن محصولات از سبد خرید"""
+		del self.session['cart_obj']
+		self.save()
 	 
