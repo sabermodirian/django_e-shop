@@ -56,7 +56,7 @@ class Cart:
 		    self.save()
       
     def save(self):
-	"""هر جا بعداً self.cart را تغییر دادی، بیا و در همین سشن مربوطه ذخیره اش کن  حتما """
+		"""هر جا بعداً self.cart را تغییر دادی، بیا و در همین سشن مربوطه ذخیره اش کن  حتما """
 	    self.session.modified = True
 	
 	def __iter__(self):
@@ -71,5 +71,7 @@ class Cart:
 		for item in cart.values(): # Generator
 			yield item
 			
-	 
+	def __len__(self):
+		""" در اینجا منظور از len تعداد هر محصول موجود در سبد خرید میباشد"""
+		return len(self.cart.keys())
 	 
