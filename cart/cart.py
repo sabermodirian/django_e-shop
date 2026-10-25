@@ -54,37 +54,52 @@ class Cart:
 	    if  prdct_id in self.cart:
 		    del self.cart[prdct_id]
 		    self.save()
-      
-    def save(self):
-		"""هر جا بعداً self.cart را تغییر دادی، بیا و در همین سشن مربوطه ذخیره اش کن  حتما """
+    
+    def save(self) :
+	    """
+		💾 ذخیره تغییرات سبد خرید در سشن
+		هر جا self.cart تغییر کرد، این متد رو صدا می‌زنیم تا سشن ذخیره بشه.
+
+		Save cart modifications to the session.
+		"""
 	    self.session.modified = True
-	
-	def __iter__(self):
-		''' جهت دادن قابلیت ایتریت کردن در یک شیء از کلاس'''
-		prdct_ids = self.cart.keys()
-		products_objs = Product.objects.filter(id__in = prdct_ids )
-		cart_obj_cln = self.cart.copy() # clone of Cart's object
-		
-		for prdct in products_objs:
-			cart_obj_cln[str(prdct.id)]['prdct_obj'] = prdct
-		
-		for item in cart.values(): # Generator
-			yield item
-			
-	def __len__(self):
-		""" در اینجا منظور از len تعداد هر محصول موجود در سبد خرید میباشد"""
-		return len(self.cart.keys())
-	
-	def clear_cart(self):
-		""" برای پاک کردن محصولات از سبد خرید"""
-		del self.session['cart_obj']
-		self.save()
-		
-	def get_total_price_prdcts(self):
-		""" محاصبه ی قیمت کل محصولا ت رد سبد خرید"""
-		prdct_ids = self.cart.keys()
-		products_objs = Product.objects.filter(id__in = prdct_ids)
-		
-		return sum(prdct.price for prdct in products_objs )
+    
+    def __iter__(self) :
+	    """
+		🔄 قابلیت پیمایش (Iterate) روی سبد خرید
+		محصولات واقعی رو از دیتابیس می‌کشه و با سبد خرید ترکیب می‌کنه.
+
+		Make the cart iterable and attach actual Product objects to cart items.
+		"""
+	    prdct_ids = self.cart.keys()
+	    products_objs = Product.objects.filter(id__in = prdct_ids)
+	    
+	    # یه کپی می‌گیریم تا موقع چرخش داده‌های اصلی سشن ناخواسته دستکاری نشن
+	    cart_obj_cln = self.cart.copy()  # clone of Cart's object
+	    
+	    for product in products_objs :
+		    cart_obj_cln[str(product.id)]['product'] = product
+	    
+	    for item in cart_obj_cln.values() :
+		    item['total_price'] = item['product'].price * item['quantity']
+		    yield item  # Generator
+    
+    def __len__(self) :
+	    """ در اینجا منظور از len تعداد هر محصول موجود در سبد خرید میباشد"""
+	    return len(self.cart.keys())
+    
+    def clear_cart(self) :
+	    """ برای پاک کردن محصولات از سبد خرید"""
+	    del self.session['cart_obj']
+	    self.save()
+    
+    def get_total_price_prdcts(self) :
+	    """
+		💰 محاسبه مجموع کل قیمت محصولات در سبد خرید
+
+		Calculate the total price of all items inside the cart.
+		"""
+	    # راه درست: استفاده از مقادیر ذخیره شده در سشن یا پیمایش روی کلاس
+	    return sum(item['product'].price * item['quantity'] for item in self)
 		
 	 
