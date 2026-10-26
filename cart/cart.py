@@ -35,18 +35,20 @@ class Cart:
         self.cart = cart
         
     def add_prdct(self, product, quantity=1):
-	"""َ Add the specified product to the Cart if it exists """
-	# اینجا متد اضافه‌کردن محصول رو جلو می‌بریم...
-        prdct_id = str(product.id)
-        
-        if  prdct_id not in self.cart: #  محصول با شماره آِیدی (prdct_id) به تعداد quantity برای کاربر ذخیره میشود
-	        self.cart[prdct_id] = {'quantity': quantity} # پس سبدخرید به صورت پیشفرض یک دیکشنریست که کلید آن (prdct_id) محصول(حتما باید پر شده باشد) و مقدارش به عنوان  (تعداد  quantity که میتواند خالی هم باشد) در نظر گرفته و ذخیره میشود
-            # را نمیتوانیم درینجا اضافه کنیم زیرا اگر قیمت تغییر کند همچنان با قیمت قدیم در سبد نمایان میشود و برای اینکار باید قیمت را در لحظه ی خرید به دیتابیس رفته و بیرون بکشیم و محاسبه و نمایش دهیم : price
-        else :
-	        # اگر ازقبل محصول وجود داشت در سبد خرید پس تعداد جدید را با تعداددرخواستی قبلی جمع میکنیم
-            self.cart[prdct_id]['quantity'] += quantity
+	    """ Add the specified product to the Cart if it exists """
+	    # اینجا متد اضافه‌کردن محصول رو جلو می‌بریم...
+	    prdct_id = str(product.id)
+	    
+	    if prdct_id not in self.cart :  # محصول با شماره آِیدی (prdct_id) به تعداد quantity برای کاربر ذخیره میشود
+		    self.cart[prdct_id] = {
+			    'quantity' : quantity}  # پس سبدخرید به صورت پیشفرض یک دیکشنریست که کلید آن (prdct_id) محصول(حتما باید پر شده باشد) و مقدارش به عنوان  (تعداد  quantity که میتواند خالی هم باشد) در نظر گرفته و ذخیره میشود
+	    # را نمیتوانیم درینجا اضافه کنیم زیرا اگر قیمت تغییر کند همچنان با قیمت قدیم در سبد نمایان میشود و برای اینکار باید قیمت را در لحظه ی خرید به دیتابیس رفته و بیرون بکشیم و محاسبه و نمایش دهیم : price
+	    else :
+		    # اگر ازقبل محصول وجود داشت در سبد خرید پس تعداد جدید را با تعداددرخواستی قبلی جمع میکنیم
+		    self.cart[prdct_id]['quantity'] += quantity
 		    # هر جا بعداً self.cart سبد خرید را تغییر دادی، این خط را فراموش نکن, و حتما session را آپدیت کن و حتما متد save را فراخوانی کن :
-        self.save()
+	    self.save()
+     
         
     def remove_prdct(self, product):
 	    """ Remove a product from the Cart"""
@@ -78,10 +80,10 @@ class Cart:
 	    cart_obj_cln = self.cart.copy()  # clone of Cart's object
 	    
 	    for product in products_objs :
-		    cart_obj_cln[str(product.id)]['product'] = product
+		    cart_obj_cln[str(product.id)]['prdct_yld_obj'] = product
 	    
 	    for item in cart_obj_cln.values() :
-		    item['total_price'] = item['product'].price * item['quantity']
+		    item['total_price'] = item['prdct_yld_obj'].price * item['quantity']
 		    yield item  # Generator
     
     def __len__(self) :
