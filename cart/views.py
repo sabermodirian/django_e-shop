@@ -26,4 +26,14 @@ def add_to_cart_view(request, product_id):
 		qntty = cleaned_data['quantity']
 		cart_obj.add_prdct(prdct_obj,qntty)
 	return redirect('cart:cart_detail')
+
+
+def remove_from_cart_view(request, product_id):
+	cart_obj = Cart(request)
+	
+	prdct_obj = get_object_or_404(Product , id = product_id)
+	cart_obj.remove_prdct(prdct_obj)
+	return redirect('cart:cart_detail')
+	
+	
 	
