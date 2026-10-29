@@ -22,8 +22,12 @@ class AddToCartProductForm(forms.Form):
     # 🔢 فیلد انتخاب تعداد با قابلیت تبدیل خودکار به عدد صحیح (Integer)
     # Quantity selection field with automatic coercion to integer.
     quantity = forms.TypedChoiceField(
-        choices=QUANTITY_CHOICES,
-        coerce=int,
-        # 🏷️ برچسب اختیاری فرم / Optional form label
-        label="تعداد / Quantity",
+	    choices = QUANTITY_CHOICES ,
+	    coerce = int ,
+	    label = "Quantity / تعداد" ,
+    )
+    
+    inplace = forms.BooleanField(
+	    required = False ,
+	    widget = forms.HiddenInput
     )

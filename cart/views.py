@@ -21,10 +21,11 @@ def add_to_cart_view(request, product_id):
 	
 	prdct_obj = get_object_or_404(Product, id = product_id)
 	cart_form = AddToCartProductForm(request.POST)
+	
 	if cart_form.is_valid():
 		cleaned_data = cart_form.cleaned_data
 		qntty = cleaned_data['quantity']
-		cart_obj.add_prdct(prdct_obj,qntty)
+		cart_obj.add_prdct(prdct_obj,qntty, replace_current_quntt = cleaned_data['inplace'])
 	return redirect('cart:cart_detail')
 
 
