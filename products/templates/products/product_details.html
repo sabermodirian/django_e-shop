@@ -50,7 +50,13 @@
 
                                     <form action="{% url 'cart:adding_to_cart' product.id %}" method="POST">
                                         {% csrf_token %}
-                                        {{ add_to_cart_form|crispy }}
+{#  {{ add_to_cart_form|crispy }}#}
+
+                                        <div class="quantity">
+                                            <input type="number" class="quantity-input" name="quantity" id="qty" value="1"
+                                                   min="1" max="30">
+                                       </div>
+
                                         <button class="btn" type="submit">{% translate 'Add To Cart' %}</button>
                                     </form>
 {#                                    <div class="quantity-wrapper d-flex justify-content-start">#}
