@@ -83,7 +83,7 @@ class Cart:
 	    products_objs = Product.objects.filter(id__in = prdct_ids)
 	    
 	    # یه کپی می‌گیریم تا موقع چرخش داده‌های اصلی سشن ناخواسته دستکاری نشن
-	    cart_obj_cln = self.cart.copy()  # clone of Cart's object
+	    cart_obj_cln = self.cart.copy()  # clone or copy of Cart's object
 	    
 	    for product in products_objs :
 		    cart_obj_cln[str(product.id)]['prdct_yld_obj'] = product
