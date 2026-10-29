@@ -104,10 +104,9 @@ class Cart:
     def get_total_price_prdcts(self) :
 	    """
 		💰 محاسبه مجموع کل قیمت محصولات در سبد خرید
-
 		Calculate the total price of all items inside the cart.
 		"""
 	    # راه درست: استفاده از مقادیر ذخیره شده در سشن یا پیمایش روی کلاس
-	    return sum(item['product'].price * item['quantity'] for item in self)
+	    return sum(item['prdct_yld_obj'].price * item['quantity'] for item in self)
 		
 	 
