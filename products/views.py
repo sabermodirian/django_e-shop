@@ -6,7 +6,7 @@ from django.contrib import messages
 
 from products.forms import CommentForm
 from products.models import Comment , Product
-from cart.forms import AddToCartProductForm
+# from cart.forms import AddToCartProductForm
 
 # Create your views here.
 
@@ -55,7 +55,7 @@ class ProductDetailsView(generic.DetailView):
 		
 		# detail view (context) ایجاد فرم خالی (اضافه کردن به سبد خرید) و اضافه‌کردن آن به  کانتکست
 		#  Create an empty (Add To Cart Product Form) form and add it to the context.
-		context['add_to_cart_form'] = AddToCartProductForm()
+		# context['add_to_cart_form'] = AddToCartProductForm()
 		
 		# برگرداندن context تکمیل‌شده به قالب
 		# Return the extended context to the template.
