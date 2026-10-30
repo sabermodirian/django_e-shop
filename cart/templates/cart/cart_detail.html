@@ -11,7 +11,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 mb-md--50">
-                            <form class="cart-form" action="#">
+
                                 <div class="row no-gutters">
                                     <div class="col-12">
                                         <div class="table-content table-responsive">
@@ -20,7 +20,7 @@
                                                     <tr>
                                                         <th>&nbsp;</th>
                                                         <th>عکس محصول</th>
-                                                        <th class="text-left">نام محصول</th>
+                                                        <th >نام محصول</th>
                                                         <th>قیمت</th>
                                                         <th>مقدار</th>
                                                         <th>مجموع</th>
@@ -32,9 +32,9 @@
                                                     <tr>
                                                         <td class="product-remove text-left"><a href="{% url 'cart:remove_from_cart' item.prdct_yld_obj.id %}"><i class="flaticon flaticon-cross"></i></a></td>
                                                         <td class="product-thumbnail text-left">
-                                                            <img src="assets/img/products/prod-10-70x88.jpg" alt="Product Thumnail">
+                                                            <img src="assets/img/products/prod-10-70x88.jpg" >
                                                         </td>
-                                                        <td class="product-name wide-column">
+                                                        <td class="product-name" >
                                                             <h3>
                                                                 <a href="{{ item.prdct_yld_obj.get_absolute_url }}">
                                                                     {{item.prdct_yld_obj.title}}
@@ -47,12 +47,19 @@
                                                             </span>
                                                         </td>
                                                         <td class="product-quantity">
-                                                            <div class="quantity">
-                                                                <input type="number"
-                                                                       class="quantity-input"
-                                                                       name="qty" id="qty-1"
-                                                                       value="{{ item.quantity }}" min="1">
-                                                            </div>
+                                                            <form class="d-flex" method="POST" action="{% url 'cart:adding_to_cart' item.prdct_yld_obj.id %}">
+                                                                {% csrf_token %}
+                                                                <div class="quantity">
+                                                                    <input type="number"
+                                                                           class="quantity-input"
+                                                                           name="quantity"
+                                                                           id="qty-1"
+                                                                           value="{{ item.quantity }}"
+                                                                           min="1">
+                                                                </div>
+                                                                 {{ item.prdct_update_quntt_form.inplace }}
+                                                                <button class="badge-pill" type="submit" ><i class="fa fa-refresh"></i></button>
+                                                            </form>
                                                         </td>
                                                         <td class="product-total-price">
                                                             <span class="product-price-wrapper">
@@ -75,7 +82,7 @@
                                         <button type="submit" class="cart-form__btn">خالی کردن سبد خرید</button>
                                     </div>
                                 </div>
-                            </form>
+
                         </div>
                         <div class="col-lg-4">
                             <div class="cart-collaterals">

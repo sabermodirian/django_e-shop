@@ -10,6 +10,12 @@ from .forms import AddToCartProductForm
 def cart_detail_view(request):
 	cart = Cart(request)
 	
+	for item in cart:
+		item['prdct_update_quntt_form'] = AddToCartProductForm(initial ={
+			'quantity': item['quantity'],
+			'inplace':True,
+		} ) #initial: برای همه ی فرمها وجود دارد بطور پیشفرض
+		
 	
 	return render(request, 'cart/cart_detail.html', {
 		'cart': cart,
