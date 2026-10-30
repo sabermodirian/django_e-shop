@@ -52,12 +52,12 @@
                                         {% csrf_token %}
 {#  {{ add_to_cart_form|crispy }}#}<div class="quantity-wrapper d-flex justify-content-start">
                                         <div class="quantity">
-                                            <input type="number" class="quantity-input" name="quantity" id="qty" value="1"
-                                                   min="1" max="30">
+                                            <input type="number" class="quantity-input" name="quantity" id="qty" value="0"
+                                                   min="0" max="30">
                                        </div>
 
-                                        <button type="submit" class="btn btn-small btn-bg-red btn-color-white btn-hover-2"
-                                            ">
+                                        <button type="submit" class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
+
                                        {% translate 'Add To Cart' %}
                                         </button>
                                     </div>

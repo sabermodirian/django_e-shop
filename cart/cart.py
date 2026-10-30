@@ -34,7 +34,7 @@ class Cart:
         """
         self.cart = cart
         
-    def add_prdct(self, product, quantity=1, replace_current_quntt = False):
+    def add_prdct(self, product, quantity=1, replace_current_quntt = False): # وقتی که False باشد یعنی بعلاوه qntt قبلی مینماید
 	    """ Add the specified product to the Cart if it exists """
 	    # اینجا متد اضافه‌کردن محصول رو جلو می‌بریم...
 	    prdct_id = str(product.id)
@@ -43,14 +43,14 @@ class Cart:
 		    self.cart[prdct_id] = {
 			    'quantity' : quantity}  # پس سبدخرید به صورت پیشفرض یک دیکشنریست که کلید آن (prdct_id) محصول(حتما باید پر شده باشد) و مقدارش به عنوان  (تعداد  quantity که میتواند خالی هم باشد) در نظر گرفته و ذخیره میشود
 	       # را نمیتوانیم درینجا اضافه کنیم زیرا اگر قیمت تغییر کند همچنان با قیمت قدیم در سبد نمایان میشود و برای اینکار باید قیمت را در لحظه ی خرید به دیتابیس رفته و بیرون بکشیم و محاسبه و نمایش دهیم : price
-	    if replace_current_qntt :
+	    if replace_current_quntt :
 		    # اگر ازقبل محصول وجود داشت در سبد خرید پس تعداد جدید را با تعداددرخواستی قبلی جمع میکنیم
 
-		    self.cart[prdct_id]['quantity'] = quantity
-		    # اگر ریپلیس کارنت کوانتیتی مساوی ترو بود بیا در سبد خرید نیز این تعداد را مساوی همان تعداد خواسته شده در همان سبد خرید بگذار
+		    self.cart[prdct_id]['quantity'] = quantity  # وقتی که True باشد یعنی مساوی qntt قبلی مینماید
+		    # اگرreplace_current_quntt مساوی True بود بیا در سبد خرید نیز این تعداد را مساوی همان تعداد خواسته شده در همان سبد خرید بگذار
 
 	    else :
-		    self.cart[prdct_id]['quantity'] += quantity
+		    self.cart[prdct_id]['quantity'] += quantity  # وقتی که False باشد یعنی بعلاوه qntt قبلی مینماید
 		    
 		    # هر جا بعداً self.cart سبد خرید را تغییر دادی، این خط را فراموش نکن, و حتما session را آپدیت کن و حتما متد save را فراخوانی کن :
 	    self.save()
