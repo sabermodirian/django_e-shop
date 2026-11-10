@@ -6,8 +6,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /code
 
 COPY requirements.txt /code/
-RUN python -m pip install --no-cache-dir --default-timeout=60 \
-    -i https://mirror-pypi.runflare.com/simple \
+RUN python -m pip install --no-cache-dir --timeout 60 --retries 3 \
+    -i https://mirrors.ustc.edu.cn/pypi/simple \
     -r requirements.txt
 
 

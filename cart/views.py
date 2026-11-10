@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404 , redirect , render
-
+from django.views.decorators.http import require_POST
 from products.models import Product
 from .cart import Cart
 from .forms import AddToCartProductForm
@@ -21,7 +21,7 @@ def cart_detail_view(request):
 		'cart': cart,
 	})
 
-
+@require_POST # این ویو فقط حق دارد بصورت POST Request صدا زده شود
 def add_to_cart_view(request, product_id):
 	cart_obj = Cart(request)
 	

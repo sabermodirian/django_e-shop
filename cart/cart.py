@@ -1,3 +1,5 @@
+from django.contrib import messages
+from django.utils.translation import gettext as _
 from products.models import Product
 
 '''
@@ -51,17 +53,25 @@ class Cart:
 
 	    else :
 		    self.cart[prdct_id]['quantity'] += quantity  # وقتی که False باشد یعنی بعلاوه qntt قبلی مینماید
-		    
-		    # هر جا بعداً self.cart سبد خرید را تغییر دادی، این خط را فراموش نکن, و حتما session را آپدیت کن و حتما متد save را فراخوانی کن :
+	    
+	    messages.success(
+		    self.request ,
+		    _('Your product was added to the cart successfully!'))
+	    
+	    # هر جا بعداً self.cart سبد خرید را تغییر دادی، این خط را فراموش نکن, و حتما session را آپدیت کن و حتما متد save را فراخوانی کن :
 	    self.save()
-     
-        
-    def remove_prdct(self, product):
-	    """ Remove a product from the Cart"""
+    
+    def remove_prdct(self , product) :
+	    """Remove a product from the cart."""
 	    prdct_id = str(product.id)
-	    if  prdct_id in self.cart:
+	    
+	    if prdct_id in self.cart :
 		    del self.cart[prdct_id]
 		    self.save()
+		    messages.success(
+			    self.request ,
+			    _("Product removed from cart successfully!")
+		    )
     
     def save(self) :
 	    """
