@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404 , render
 from django.urls import reverse
 from django.views import generic
 from django.contrib import messages
-
+from django.utils.translation import gettext as _
 from products.forms import CommentForm
 from products.models import Comment , Product
 # from cart.forms import AddToCartProductForm
@@ -71,11 +71,12 @@ class CommentCreateView(generic.CreateView):
 	# 	return reverse('product_details' , kwargs = {'pk' : self.object.product_cmmnt.pk})
 	
 	def form_valid(self , form , obj_prdct = None):
-		obj_frm_cmmnt_mdl = form.save(commit = False)
+		obj_frm_cmmnt_mdl = form.save(commit = False)  # object form comment model
 		obj_frm_cmmnt_mdl.author_cmmnt = self.request.user
 		product_id = int(self.kwargs['prdct_id'])
 		prdct = get_object_or_404(Product , id=product_id)
 		obj_frm_cmmnt_mdl.product_cmmnt = prdct
+		messages.success(self.request , _('Comment Successfully Created!') )
 
 		return super().form_valid(form)
 	 
