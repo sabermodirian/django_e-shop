@@ -184,9 +184,10 @@ LANGUAGES = (
  (templates/account/logged_out.html , login.html ,logout.html,signup.html),
  (templates/_base.html , templates/home.html)
 """
-LOCALE_PATHS = (
-	'templates/locale',
-)
+LOCALE_PATHS = [
+    BASE_DIR / "locale",
+    BASE_DIR / "templates" / "locale",
+]
 
 
 # TIME_ZONE = 'UTC'
