@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -93,18 +94,25 @@
                                 <i class="flaticon flaticon-user"></i>
                             </a>
                             <ul class="user-info-menu">
-                                <li>
-                                    <a class="text-right" href="my-account.html">حساب کاربری</a>
+                                {% if user.is_authenticated %}
+                                     <li>
+{#                                    <a class="text-right" href="{% url 'profile' %}">{% trans 'Profile' %}</a>#}
+                                </li>
+                                    <li>
+                                        <a class="text-right" href="{% url 'account_logout' %}">{% translate 'SINOUT'%}</a>
+                                    </li>
+                                {% else %}
+
+                                    <li>
+                                    <a class="text-right" href="{% url 'account_login' %}">{% trans 'Login' %}</a>
                                 </li>
                                 <li>
-                                    <a class="text-right" href="cart.html">سبد خرید</a>
+                                    <a class="text-right" href="{% url 'account_signup' %}">{% trans 'SignUp' %}</a>
                                 </li>
-                                <li>
-                                    <a class="text-right" href="wishlist.html">علاقه مندی ها</a>
-                                </li>
-                                <li>
-                                    <a class="text-right" href="order-tracking.html">تاریخچه سفارشات</a>
-                                </li>
+
+                                {% endif %}
+
+
                             </ul>
                         </li>
                         <li class="header-toolbar__item">
@@ -128,11 +136,11 @@
 <!--Start for django messages framework -->
 <!-- https://docs.djangoproject.com/en/6.1/ref/contrib/messages/ -->
 {% if messages %}
-<ul class="container-fluid">
-    {% for message in messages %}
-    <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
+    <ul class="container-fluid">
+        {% for message in messages %}
+            <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
 {% endif %}
 
 <!--End of django messages framework -->
