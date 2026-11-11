@@ -179,13 +179,22 @@
                                                 <div class="row">
                                                     <div class="border-top py-5 w-100"></div>
                                                     <div class="col-lg-8 m-auto">
-                                                        <span class="reply-title pull-right">{% translate 'Write your comment' %}</span>
                                                         <br>
-                                                        <form action="{% url 'create_cmmnt' product.id %}" method="post">
+                                                        {% if user.is_authenticated %}
+                                                            <span class="reply-title pull-right">{% translate 'Write your comment' %}</span>
+                                                            <br>
+                                                             <form action="{% url 'create_cmmnt' product.id %}" method="post">
                                                             {% csrf_token %}
                                                             {{ comment_form|crispy }}
                                                             <input type="submit" value="{% trans 'Submit' %}">
                                                         </form>
+
+                                                        {% else %}
+                                                            <p>{% translate 'To write your comment please' %} <a
+                                                                        href="{% url 'account_login' %}">{% trans 'Login' %}</a>
+                                                            </p>
+
+                                                        {% endif %}
 
                                                     </div>
                                                 </div>
@@ -205,5 +214,5 @@
     </div>
     <!-- Main Wrapper End -->
 
-
+    </div>
 {% endblock %}
