@@ -106,13 +106,66 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
+	            # اطلاعات مخصوص حالت توسعه را به قالب‌ها اضافه می‌کند.
+	            #
+	            # در حالت DEBUG=True، متغیرهایی مانند debug و sql_queries
+	            # برای بررسی و خطایابی در قالب‌ها قابل استفاده می‌شوند.
+	            #
+	            # این Context Processor معمولاً در محیط توسعه مفید است
+	            # و در محیط Production نباید روی اطلاعات Debug حساب کرد.
+	            'django.template.context_processors.debug' ,
 	            
-	        # `allauth` needs this from django
+	            # شیء request را به تمام قالب‌ها اضافه می‌کند.
+	            #
+	            # بعد از فعال‌بودن این Context Processor، در قالب می‌توانیم
+	            # مستقیماً از متغیر request استفاده کنیم؛ برای مثال:
+	            #
+	            # {{ request.user }}
+	            # {{ request.path }}
+	            # {{ request.method }}
+	            #
+	            # django-allauth برای مدیریت ورود، ثبت‌نام و وضعیت درخواست
+	            # به این Context Processor نیاز دارد.
 	            'django.template.context_processors.request' ,
 	            
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+	            # اطلاعات مربوط به کاربر فعلی را به قالب اضافه می‌کند.
+	            #
+	            # با فعال‌بودن این Context Processor، در قالب متغیر user
+	            # در دسترس است و می‌توانیم وضعیت ورود کاربر را بررسی کنیم:
+	            #
+	            # {% if user.is_authenticated %}
+	            #     سلام {{ user.username }}
+	            # {% else %}
+	            #     لطفاً وارد شوید.
+	            # {% endif %}
+	            #
+	            # اگر کاربر وارد نشده باشد، user معمولاً AnonymousUser خواهد بود.
+	            'django.contrib.auth.context_processors.auth' ,
+	            
+	            # پیام‌های موقت Django را به قالب‌ها اضافه می‌کند.
+	            #
+	            # این پیام‌ها معمولاً بعد از انجام عملیات‌هایی مانند:
+	            # - ورود موفق
+	            # - خروج از حساب
+	            # - افزودن محصول به سبد خرید
+	            # - حذف محصول از سبد خرید
+	            # - ذخیره یا حذف اطلاعات
+	            #
+	            # در قالب با متغیر messages قابل نمایش هستند:
+	            #
+	            # {% if messages %}
+	            #     {% for message in messages %}
+	            #         {{ message }}
+	            #     {% endfor %}
+	            # {% endif %}
+	            'django.contrib.messages.context_processors.messages' ,
+	            
+	            # Context Processor سفارشی پروژه که در ماژول cart تعریف شده است.
+	            # تابع cart_func در هر بار پردازش قالب اجرا می‌شود و اطلاعات سبد خرید
+	            # را به context اضافه می‌کند تا در قالب‌ها، مثلاً از متغیر cart، استفاده شود.
+	            'cart.context_processors.cart_func' ,
+	            # Custom Context Processors that written by Saber_Developer:
+	            'cart.context_processors.cart_func',
             ],
         },
     },
@@ -185,8 +238,8 @@ LANGUAGES = (
  (templates/_base.html , templates/home.html)
 """
 LOCALE_PATHS = [
-    BASE_DIR / "locale",
-    BASE_DIR / "templates" / "locale",
+    BASE_DIR / "locale",  # برای ترجمه ی المانهای غیر وابسته به تمپلیتهای در دسترس
+    BASE_DIR / "templates" / "locale", #  برای ترجمه ی المانهای وابسته و موجود در تمپلیت هر اپ  تولید شده جنگویی توسط دولوپر
 ]
 
 
