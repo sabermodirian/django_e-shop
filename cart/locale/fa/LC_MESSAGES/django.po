@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-11 19:21+0330\n"
+"POT-Creation-Date: 2026-11-13 22:54+0330\n"
 "PO-Revision-Date: 2026-11-10 22:20+0330\n"
 "Last-Translator:   <aria@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,20 +18,44 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.3\n"
 
-#: .\cart\cart.py:59
+#: .\cart.py:59
 msgid "Your product was added to the cart successfully!"
 msgstr "محصول با موفقیت به سبد خرید اضافه شد."
 
-#: .\cart\cart.py:73
+#: .\cart.py:73
 msgid "Product removed from cart successfully!"
 msgstr "محصول با موفقیت از سبد خرید حذف شد."
 
-#: .\cart\templates\cart\cart_detail.html:80
+#: .\templates\cart\cart_detail.html:9 .\templates\cart\cart_sidebar.html:12
+msgid "Cart"
+msgstr "سبد خرید"
+
+#: .\templates\cart\cart_detail.html:84
 msgid "Cart is empty!  Please add some products to the cart"
 msgstr ""
 "سبد خرید شما خالیست!\n"
 "لطفا تعدادی کالا به خریدتان اضافه بفرمایید."
 
-#: .\cart\templates\cart\cart_detail.html:81
+#: .\templates\cart\cart_detail.html:85
 msgid "Go shopping"
 msgstr "برو به فروشگاه."
+
+#: .\templates\cart\cart_sidebar.html:31 .\templates\cart\cart_sidebar.html:41
+msgid "$"
+msgstr "تومان"
+
+#: .\templates\cart\cart_sidebar.html:31
+msgid "Items"
+msgstr "عدد"
+
+#: .\templates\cart\cart_sidebar.html:40
+msgid "total price"
+msgstr "جمع کل"
+
+#: .\templates\cart\cart_sidebar.html:44
+msgid "Go to Cart"
+msgstr "برو به سبدخرید"
+
+#: .\templates\cart\cart_sidebar.html:45
+msgid "CheckOut"
+msgstr "پرداخت"

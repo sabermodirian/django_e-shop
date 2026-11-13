@@ -5,6 +5,10 @@
 {% load crispy_forms_tags %}
 {% load comment_tags %}
 {% block content %}
+    <!-- Breadcrumb area Start -->
+      {% trans 'Cart' as x%}                  {#  متغیر ارسالی از topheader.html#}
+        {% include 'topheader.html' with header_name=x %}
+        <!-- Breadcrumb area End -->
          <!-- Main Content Wrapper Start -->
         <div class="main-content-wrapper">
             <div class="page-content-inner ptb--80">
