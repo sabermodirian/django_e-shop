@@ -104,8 +104,8 @@ class Cart:
     
     def __len__(self) :
 	      """ در اینجا منظور از len تعداد هر محصول موجود در سبد خرید میباشد"""
-	      # return len(self.cart.keys())
-	      return sum(item['quantity'] for item in self.cart.values())
+	      # return len(self.cart.keys())  # از نظر تنوعی
+	      return sum(item['quantity'] for item in self.cart.values()) # از نظر تعداد هر تنوع محصولی
 	    
     
     def clear_cart(self) :
