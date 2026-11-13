@@ -87,7 +87,7 @@
                             <a href="#miniCart" class="header-toolbar__btn toolbar-btn mini-cart-btn">
                                 <i class="flaticon flaticon-shopping-cart"></i>
 
-                              {#   تعداد تنوعی محصولات درون سبدخرید  #}
+                                {#   تعداد تنوعی محصولات درون سبدخرید  #}
                                 <sup class="mini-cart-count">{{ cart|length }}</sup>
                             </a>
                         </li>
@@ -97,20 +97,21 @@
                             </a>
                             <ul class="user-info-menu">
                                 {% if user.is_authenticated %}
-                                     <li>
-{#                                    <a class="text-right" href="{% url 'profile' %}">{% trans 'Profile' %}</a>#}
-                                </li>
                                     <li>
-                                        <a class="text-right" href="{% url 'account_logout' %}">{% translate 'SINOUT'%}</a>
+                                        {#                                    <a class="text-right" href="{% url 'profile' %}">{% trans 'Profile' %}</a>#}
+                                    </li>
+                                    <li>
+                                        <a class="text-right"
+                                           href="{% url 'account_logout' %}">{% translate 'SINOUT' %}</a>
                                     </li>
                                 {% else %}
 
                                     <li>
-                                    <a class="text-right" href="{% url 'account_login' %}">{% trans 'Login' %}</a>
-                                </li>
-                                <li>
-                                    <a class="text-right" href="{% url 'account_signup' %}">{% trans 'SignUp' %}</a>
-                                </li>
+                                        <a class="text-right" href="{% url 'account_login' %}">{% trans 'Login' %}</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-right" href="{% url 'account_signup' %}">{% trans 'SignUp' %}</a>
+                                    </li>
 
                                 {% endif %}
 
@@ -199,9 +200,7 @@
 {% endblock %}
 
 {% block minicart %}
-    <!-- Mini Cart Start -->
 
-    <!-- Mini Cart End -->
 {% endblock %}
 
 
@@ -363,6 +362,10 @@
     </div>
     <!-- Qicuk View Modal End -->
 {% endblock %}
+
+<!-- Mini Cart Start sidebar -->
+{#{% include 'cart/cart_sidebar.html' %}#}
+<!-- Mini Cart sidebar  End -->
 <!-- ************************* JS Files ************************* -->
 <!-- jQuery JS -->
 <script src="{% static 'js/vendor.js' %}"></script>
