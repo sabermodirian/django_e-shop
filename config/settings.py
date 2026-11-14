@@ -259,6 +259,9 @@ USE_TZ = True # TimeZone
 STATIC_URL = 'static/' #مکان فایلهای استاتیک موجود و مخصوص هر اپ
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),] # مکان فایلهای استاتیک کلی موجود در پروژه
 
+# media
+MEDIA_URL = '/media/' #مکان فایلهای استاتیک ی که کاربر به سایت اضافه مکند
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/') # مکان فایلهای استاتیک کلی موجود در پروژه که کاربر به سایت اضافه مکند
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
