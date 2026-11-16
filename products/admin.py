@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-
+from jalali_date.admin import ModelAdminJalaliMixin
 
 from .models import Product , Comment   # == from Product.models import Product , Comment
 
@@ -18,7 +18,7 @@ class CommentsInlineProduct(admin.TabularInline): # class CommentsInlineProduct(
 	
 # Register your models here.
 @admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 	model = Product
 	list_display = ('title', 'datetime_created', 'datetime_modified' , 'price' , 'active' ,)
 	
