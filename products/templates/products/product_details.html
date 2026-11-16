@@ -4,6 +4,9 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% load comment_tags %}
+{% load jalali_tags %}
+
+
 {% block content %}
     <!-- Main Wrapper Start -->
     <div class="wrapper">
@@ -155,7 +158,7 @@
                                                                              alt="Review Avatar" class="review__avatar">
                                                                         <div>
                                                                             <div class="review__meta" dir="ltr">
-                                                                                <span class="review__published-date">{{ coment.cmmnt_created_at|date:"Y/m/d H:i" }}</span>
+                                                                                <span class="review__published-date">{{ coment.cmmnt_created_at|to_jalali:'%Y %B %d _ %H:%M:%S' }}</span>
                                                                                 <span class="review__dash">-</span>
                                                                                 <strong class="review__author px-4">{{ coment.author_cmmnt.username }}</strong>
                                                                             </div>
@@ -199,7 +202,6 @@
                                                                     <a href="{% url 'account_login' %}">{% trans 'Login' %}</a>
                                                                 </h2>
                                                                 </p>
-
                                                             {% endif %}
 
                                                         </div>

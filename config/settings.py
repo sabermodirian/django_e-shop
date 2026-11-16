@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	
+# Third Party Apps Special for  jalali date :
+	'jalali_date',
 
 # # اگر social login یا email confirmation جدی می‌خوای، بهتره sites هم باشه
     "django.contrib.sites",
