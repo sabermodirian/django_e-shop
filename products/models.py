@@ -1,3 +1,5 @@
+from django.utils import timezone as django_timezone
+
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.shortcuts import reverse
@@ -15,7 +17,7 @@ class Product(models.Model) :
 	                          upload_to = 'product/product_picture/', blank = True,)
 	
 	# cover_prdct = models.ImageField()
-	datetime_created = models.DateTimeField(auto_now_add = True , verbose_name = _("Product Created At"))
+	datetime_created = models.DateTimeField(default = django_timezone.now , verbose_name = _("Product Created At"))
 	datetime_modified = models.DateTimeField(auto_now = True , verbose_name = _("Product Modified At"))
 	
 	def __str__(self) :
