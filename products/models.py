@@ -14,10 +14,13 @@ class Product(models.Model) :
 	title = models.CharField(max_length = 100 , verbose_name = _("Product's Name"))
 	# description = models.TextField(verbose_name = _("Product's Features"))
 	description = RichTextField(config_name="extends")
+	short_description = models.TextField(max_length = 350 , blank = True)
 	price = models.PositiveIntegerField(default = 0 , verbose_name = _("Price"))
 	active = models.BooleanField(default = True , verbose_name = _("confirmed Product"))
 	image = models.ImageField(verbose_name = _("Product's Image"),
-	                          upload_to = 'product/product_picture/', blank = True,)
+	                          upload_to = 'product/product_picture/',
+	                          blank = True,
+	                          )
 	
 	# cover_prdct = models.ImageField()
 	datetime_created = models.DateTimeField(default = django_timezone.now , verbose_name = _("Product Created At"))
