@@ -68,6 +68,7 @@ INSTALLED_APPS = [
 	'pages',     # pages.apps.PagesConfig
 	'products',  # products.apps.ProductsConfig
 	'cart',      # cart.apps.CartConfig
+	'persian_jalali_translation', # persian_jalali_translation.apps.CartConfig
 ]
 
 # Crispy Forms settings:
