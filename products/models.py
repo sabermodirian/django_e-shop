@@ -4,13 +4,16 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.shortcuts import reverse
 from django.utils.translation import gettext_lazy as _
+from django_ckeditor_5.fields import CKEditor5Field as RichTextField
+
 
 
 # Create your models here.
 
 class Product(models.Model) :
 	title = models.CharField(max_length = 100 , verbose_name = _("Product's Name"))
-	description = models.TextField(verbose_name = _("Product's Features"))
+	# description = models.TextField(verbose_name = _("Product's Features"))
+	description = RichTextField(config_name="extends")
 	price = models.PositiveIntegerField(default = 0 , verbose_name = _("Price"))
 	active = models.BooleanField(default = True , verbose_name = _("confirmed Product"))
 	image = models.ImageField(verbose_name = _("Product's Image"),

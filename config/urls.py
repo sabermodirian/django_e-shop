@@ -14,13 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
+
+
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include , path
 from django.views.generic import TemplateView
+# from django.conf.urls.static import static  # for ckeditor 5
 
 
-urlpatterns = [path('admin/' , admin.site.urls) , path('' , include('pages.urls')) ,
+
+urlpatterns = ([path('admin/' , admin.site.urls) , path('' , include('pages.urls')) ,
 	# path('accounts/',include('django.contrib.auth.urls')),
 	# path('accounts/',include('accounts.urls')),
 	path("accounts/" , include("allauth.urls")) ,
@@ -31,4 +35,9 @@ urlpatterns = [path('admin/' , admin.site.urls) , path('' , include('pages.urls'
  
     # Rosetta (i18n)
     path('rosetta/', include('rosetta.urls')),
-] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    path("ckeditor5/" , include('django_ckeditor_5.urls')) ,
+		# Define a constant in settings.py to specify the custom upload file view
+	# CK_EDITOR_5_UPLOAD_FILE_VIEW_NAME = "custom_upload_file"
+	# path("upload/", custom_upload_function, name="custom_upload_file"),
+]
+               + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT))
