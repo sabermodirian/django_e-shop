@@ -154,10 +154,10 @@
                                                                         <img src="assets/img/others/comment-1.jpg"
                                                                              alt="Review Avatar" class="review__avatar">
                                                                         <div>
-                                                                            <div class="review__meta">
-                                                                                <strong class="review__author px-4">{{ coment.author_cmmnt.username }}</strong>
-                                                                                <span class="review__dash">-</span>
+                                                                            <div class="review__meta" dir="ltr">
                                                                                 <span class="review__published-date">{{ coment.cmmnt_created_at|date:"Y/m/d H:i" }}</span>
+                                                                                <span class="review__dash">-</span>
+                                                                                <strong class="review__author px-4">{{ coment.author_cmmnt.username }}</strong>
                                                                             </div>
                                                                             <div class="product-rating">
                                                                                 <div class="m-0 star-rating star-five">
