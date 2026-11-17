@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	# humanize is a set of Django template filters useful for adding a “human touch” to data:
+	'django.contrib.humanize',
 	
 # Third Party Apps Special for  jalali date :
 	'jalali_date',
