@@ -4,7 +4,7 @@ from django.conf import settings
 
 class Order(models.Model):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
-	is_paid = frst_nm = models.BooleanField(default = False)
+	is_paid = models.BooleanField(default = False)
 	
 	first_nm = models.CharField(max_length = 100)
 	last_nm = models.CharField(max_length = 100)
