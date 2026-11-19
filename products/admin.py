@@ -13,7 +13,7 @@ class CommentsInlineProduct(admin.TabularInline): # class CommentsInlineProduct(
 	"""قراره که کانتهای هر محصول زیر همون Product  در پنل ادمین قابل دسترسی و نمایش باشه """
 	model = Comment
 	fields = ["status_cmmnt", "stars_point_prdct", "cmmnt_body_txt", "author_cmmnt"]
-	extra = 5
+	extra = 2
 	
 	
 # Register your models here.
