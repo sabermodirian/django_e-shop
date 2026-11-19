@@ -339,31 +339,41 @@ CKEDITOR_5_CONFIGS = {
         },
 
         # ابزارهای هنگام انتخاب تصویر
-        'image': {
-            'toolbar': [
-                'linkImage',
-                'toggleImageCaption',
-                'imageTextAlternative',
-                '|',
-                'imageStyle:alignLeft',
-                'imageStyle:alignCenter',
-                'imageStyle:alignRight',
-                'imageStyle:side',
-                '|',
-                'resizeImage',
-            ],
-            'styles': [
-                'full',
-                'side',
-                'alignLeft',
-                'alignRight',
-                'alignCenter',
-            ],
-            'resizeUnit': '%',
-            # resizeOptions را عمداً تعریف نمی‌کنیم.
-        },
-
-        'table': {
+	    'image' : {
+		    'toolbar' : [
+			    # چینش عکس به‌صورت مستقل؛ بدون شناورشدن کنار متن
+			    'imageStyle:alignBlockLeft' ,
+			    'imageStyle:alignCenter' ,
+			    'imageStyle:alignBlockRight' ,
+			    '|' ,
+			    'imageStyle:side' ,
+			    'resizeImage' ,
+			    '|' ,
+			    'toggleImageCaption' ,
+			    'imageTextAlternative' ,
+			    'linkImage' ,
+		    ] ,
+		    
+		    'styles' : [
+			    'block' ,
+			    'inline' ,
+			    'side' ,
+			    'alignBlockLeft' ,
+			    'alignCenter' ,
+			    'alignBlockRight' ,
+			    
+			    # برای حفظ سازگاری عکس‌هایی که قبلاً با این حالت‌ها ذخیره شده‌اند:
+			    'alignLeft' ,
+			    'alignRight' ,
+		    ] ,
+		    
+		    'resizeUnit' : '%' ,
+		    
+		    # resizeOptions سفارشی تعریف نکن؛ تنظیم پیش‌فرضِ
+		    # Original / 25% / 50% / 75% که الان کار می‌کند حفظ می‌شود.
+	    } ,
+	    
+	    'table': {
             'contentToolbar': [
                 'tableColumn',
                 'tableRow',

@@ -24863,3 +24863,45 @@ a,
 .primary-bg {
   background-color: #c2080f;
 }
+
+
+/*اضافه شده برای اصلاح دکمه ی راست و چپ و وسط چین مخصوص تصویر در ویرایش تصویر CKEditor 5*/
+
+.product-description figure.image {
+    display: table;
+    max-width: 100%;
+    margin: 1em auto;
+    clear: both;
+    text-align: center;
+}
+
+.product-description figure.image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.product-description figure.image.image_resized {
+    display: block;
+}
+
+.product-description figure.image.image_resized img {
+    width: 100%;
+}
+
+.product-description figure.image.image-style-block-align-left,
+.product-description figure.image.image-style-align-block-left {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.product-description figure.image.image-style-align-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-description figure.image.image-style-block-align-right,
+.product-description figure.image.image-style-align-block-right {
+    margin-left: auto;
+    margin-right: 0;
+}
