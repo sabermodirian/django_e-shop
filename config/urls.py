@@ -39,5 +39,9 @@ urlpatterns = ([path('admin/' , admin.site.urls) , path('' , include('pages.urls
 		# Define a constant in settings.py to specify the custom upload file view
 	# CK_EDITOR_5_UPLOAD_FILE_VIEW_NAME = "custom_upload_file"
 	# path("upload/", custom_upload_function, name="custom_upload_file"),
-]
-               + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT))
+    
+    #order
+    path('order/' , include('orders.urls')),
+    
+	]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT))
+ 
