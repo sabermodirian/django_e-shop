@@ -14,11 +14,9 @@
     <div class="main-content-wrapper">
 
         <!-- Breadcrumb area Start -->
-        {% trans 'Order' as x %}  {#  متغیر ارسالی از topheader.html#}
+        {% trans 'Order' as x %} {#  متغیر ارسالی از topheader.html#}
         {% include 'topheader.html' with header_name=x %}
         <!-- Breadcrumb area End -->
-
-
 
         {% block minicart %}
             <!-- Mini Cart Start sidebar  -->
@@ -26,9 +24,7 @@
             <!-- Mini Cart sidebar  End -->
         {% endblock minicart %}
 
-
         <!-- Main Content Wrapper Start -->
-
         <div class="page-content-inner">
             <div class="container">
                 <div class="row pt--50 pt-md--40 pt-sm--20"></div>
@@ -102,25 +98,32 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <th>محصول شماره یک
-                                            <strong><span>&#10005;</span>۲</strong>
-                                        </th>
-                                        <td class="text-right">۲۹۶,۰۰۰ تومان</td>
-                                    </tr>
-                                    <tr>
-                                        <th>محصول شماره دو
-                                            <strong><span>&#10005;</span>۱</strong>
-                                        </th>
-                                        <td class="text-right">۵۸,۰۰۰ تومان</td>
-                                    </tr>
+                                    {% for crt_item in cart %}
+
+                                        <tr>
+                                            <th>{{ crt_item.prdct_yld_obj.title }}
+                                                <strong><span> &#10005; </span> {{ crt_item.quantity }} {% translate 'Items' %}
+                                                </strong>
+                                            </th>
+
+                                            <td class="text-right"> {{ crt_item.prdct_yld_obj.price|intcomma:False|translate_number }} {% translate '$' %}</td>
+                                        </tr>
+                                    {% endfor %}
+
+
                                     </tbody>
                                     <tfoot>
                                     <tr class="cart-subtotal">
-                                        <th>مجموع</th>
-                                        <td class="text-right">۳۴۸,۰۰۰ تومان</td>
+                                        <th scope="row">{% trans 'total price' %}</th>
+                                        <td class="text-right">
+                                            <span class="amount">
+                                                {{ cart.get_total_price_prdcts|intcomma:False|translate_number }}
+                                                {% translate '$' %}
+                                            </span>
+                                        </td>
                                     </tr>
                                     </tfoot>
+
                                 </table>
                             </div>
                             <div class="checkout-payment">
