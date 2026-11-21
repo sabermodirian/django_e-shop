@@ -21,7 +21,7 @@ class Order(models.Model):
     first_nm = models.CharField(max_length=100,  verbose_name = _('First Name'))
     last_nm = models.CharField(max_length=100,  verbose_name = _('Lass Name'))
     phone_nmbr = models.CharField(max_length=15, verbose_name = _('Phone Number'))
-    address = models.CharField(max_length=700,  verbose_name = _('Address'))
+    address = models.TextField(max_length=700,  verbose_name = _('Address'))
 
     # توضیحات اختیاریِ همراه سفارش.
     order_notes = models.TextField(blank=True,  verbose_name = _('Order Notes'))

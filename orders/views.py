@@ -1,7 +1,8 @@
 from django.shortcuts import render
-# from django.http import HttpResponse
+from .forms import OrderForm
 
 # Create your views here.
 
 def order_create_view(request):
-	return render(request, 'orders/order_create.html')
+	context = {'frm_ordr' : OrderForm(), }
+	return render(request, 'orders/order_create.html',context)
