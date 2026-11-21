@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-11 22:17+0330\n"
+"POT-Creation-Date: 2026-11-21 18:59+0330\n"
 "PO-Revision-Date: 2026-11-11 22:19+0330\n"
 "Last-Translator:   <aria@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,17 +18,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.3\n"
 
-#: .\templates\_base.html:102
+#: .\templates\_base.html:105
 msgid "SINOUT"
 msgstr "خروج"
 
-#: .\templates\_base.html:107
+#: .\templates\_base.html:110
 msgid "Login"
 msgstr "ورود"
 
-#: .\templates\_base.html:110
+#: .\templates\_base.html:113
 msgid "SignUp"
 msgstr "ثبت نام"
 
-msgid "- Select an option -"
-msgstr "ـ یک گزینه را انتخاب کنید ـ"
+#~ msgid "- Select an option -"
+#~ msgstr "ـ یک گزینه را انتخاب کنید ـ"

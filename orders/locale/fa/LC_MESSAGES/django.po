@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-20 22:57+0330\n"
-"PO-Revision-Date: 2026-11-20 23:01+0330\n"
+"POT-Creation-Date: 2026-11-21 18:59+0330\n"
+"PO-Revision-Date: 2026-11-21 19:04+0330\n"
 "Last-Translator:   <aria@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,50 +18,71 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.3\n"
 
-#: .\models.py:14
+#: .\orders\models.py:14
 msgid "User"
-msgstr ""
+msgstr "کاربر:"
 
-#: .\models.py:18
+#: .\orders\models.py:18
 msgid "IsPaid"
-msgstr ""
+msgstr "وضعیت پرداخت (پرداخت شده ؟)"
 
-#: .\models.py:21
+#: .\orders\models.py:21
 msgid "First Name"
-msgstr ""
+msgstr "نام:"
 
-#: .\models.py:22
+#: .\orders\models.py:22
 msgid "Lass Name"
-msgstr ""
+msgstr "نام خانوادگی:"
 
-#: .\models.py:23
+#: .\orders\models.py:23
 msgid "Phone Number"
-msgstr ""
+msgstr "شماره تلفن:"
 
-#: .\models.py:24
+#: .\orders\models.py:24
 msgid "Address"
-msgstr ""
+msgstr "آدرس کامل:"
 
-#: .\models.py:27
+#: .\orders\models.py:27
 msgid "Order Notes"
-msgstr ""
+msgstr "توضیحات سفارش:"
 
-#: .\models.py:46
+#: .\orders\models.py:30
+msgid "Created Date at"
+msgstr "تاریخ ثبت سفارش:"
+
+#: .\orders\models.py:31
+msgid "Modified Date at"
+msgstr "تاریخ تغییرسفارش:"
+
+#: .\orders\models.py:46
 msgid "Order's Items"
-msgstr ""
+msgstr "موارد سفارش:"
 
-#: .\models.py:54
+#: .\orders\models.py:54
 msgid "Product of Order's Items"
-msgstr ""
+msgstr "کالای مورد نظر:"
 
-#: .\models.py:61
+#: .\orders\models.py:61
 msgid "Product's Quantity of Order's Items"
-msgstr ""
+msgstr "تعداد کالاهای مورد نظر:"
 
-#: .\models.py:67
+#: .\orders\models.py:67
 msgid "Product's Price of Order's Items"
-msgstr ""
+msgstr "قیمت کالای مورد نظر :"
 
-#: .\templates\orders\order_create.html:17
+#: .\orders\templates\orders\order_create.html:17
 msgid "Order"
 msgstr "ثبت سفارش"
+
+#: .\orders\templates\orders\order_create.html:106
+msgid "Items"
+msgstr "عدد"
+
+#: .\orders\templates\orders\order_create.html:110
+#: .\orders\templates\orders\order_create.html:122
+msgid "$"
+msgstr "تومان"
+
+#: .\orders\templates\orders\order_create.html:118
+msgid "total price"
+msgstr "جمع کل:"

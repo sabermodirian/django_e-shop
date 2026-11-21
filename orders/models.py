@@ -19,7 +19,7 @@ class Order(models.Model):
 
     # اطلاعات گیرنده و نشانی ثبت‌شده برای همین سفارش.
     first_nm = models.CharField(max_length=100,  verbose_name = _('First Name'))
-    last_nm = models.CharField(max_length=100,  verbose_name = _('Lass Name'))
+    last_nm = models.CharField(max_length=100,  verbose_name = _('Last Name'))
     phone_nmbr = models.CharField(max_length=15, verbose_name = _('Phone Number'))
     address = models.TextField(max_length=700,  verbose_name = _('Address'))
 
@@ -27,8 +27,8 @@ class Order(models.Model):
     order_notes = models.TextField(blank=True,  verbose_name = _('Order Notes'))
 
     # زمان ایجاد سفارش و زمان آخرین ذخیرهٔ آن.
-    dttm_created_at = models.DateTimeField(auto_now_add=True)
-    dttm_modified_at = models.DateTimeField(auto_now=True)
+    dttm_created_at = models.DateTimeField(auto_now_add=True , verbose_name = _("Created Date at"))
+    dttm_modified_at = models.DateTimeField(auto_now=True, verbose_name = _("Modified Date at"))
 
     def __str__(self):
         """شناسهٔ خوانای سفارش را برمی‌گرداند."""
