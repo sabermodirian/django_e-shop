@@ -7,6 +7,8 @@ class OrderForm(forms.ModelForm):
 		model = Order
 		fields = [ 'first_nm', 'last_nm', 'phone_nmbr', 'address','order_notes' ]
 		widgets = {
-			"address" : forms.Textarea(attrs = {'rows' : 3}),
-			"order_notes" : forms.Textarea(attrs = {'rows' : 5}),
+			"address" : forms.Textarea(attrs = {'rows' : 3 ,  'placeholder': ' plaese enter your address requiredly,'}),
+			"order_notes" : forms.Textarea(
+				attrs = {'rows' : 5 ,
+			             'placeholder': 'If you any notes plaese enter here, Otherwise leave it empty'}),
 		}
