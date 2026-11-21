@@ -6,4 +6,7 @@ class OrderForm(forms.ModelForm):
 	class Meta:
 		model = Order
 		fields = [ 'first_nm', 'last_nm', 'phone_nmbr', 'address','order_notes' ]
-		
+		widgets = {
+			"address" : forms.Textarea(attrs = {'rows' : 3}),
+			"order_notes" : forms.Textarea(attrs = {'rows' : 5}),
+		}
