@@ -35,28 +35,33 @@
                             <h2>جزئیات سفارش</h2>
                         </div>
                         <div class="checkout-form">
-{#                            {{ frm_ordr|crispy }}#}
+                            {#                            {{ frm_ordr|crispy }}#}
 
-                            <form action="#" class="form form--checkout">
+                            <form action="" method="POST" class="form form--checkout">
                                 {% csrf_token %}
+                                {% if frm_ordr.errors %}
+                                    <div class="alert alert-danger">
+                                        {{ frm_ordr.errors }}
+                                    </div>
+                                {% endif %}
                                 <div class="form-row mb--20">
                                     <div class="form__group col-md-6 mb-sm--30">
                                         <label for="first_nm" class="form__label form__label--2">نام <span
                                                 class="required">*</span></label>
-                                        <input type="text" name="first_nm" id="first_nm"
+                                        <input type="text" name="{{ frm_ordr.first_nm.name }}" id="first_nm"
                                                class="form__input form__input--2">
                                     </div>
                                     <div class="form__group col-md-6">
                                         <label for="last_nm" class="form__label form__label--2">نام خانوادگی <span
                                                 class="required">*</span></label>
-                                        <input type="text" name="last_nm" id="last_nm"
+                                        <input type="text" name="{{ frm_ordr.last_nm.name }}" id="last_nm"
                                                class="form__input form__input--2">
                                     </div>
                                 </div>
                                 <div class="form-row mb--20">
                                     <div class="form__group col-12">
                                         <label for="address" class="form__label form__label--2">آدرس</label>
-                                        <input type="text" name="address" id="address"
+                                        <input type="text" name="{{ frm_ordr.address.name }}" id="address"
                                                class="form__input form__input--2">
                                     </div>
                                 </div>
@@ -64,7 +69,7 @@
                                     <div class="form__group col-12">
                                         <label for="phone_nmbr" class="form__label form__label--2">شماره همراه <span
                                                 class="required">*</span></label>
-                                        <input type="text" name="phone_nmbr" id="phone_nmbr"
+                                        <input type="text" name="{{ frm_ordr.phone_nmbr.name }}" id="phone_nmbr"
                                                class="form__input form__input--2">
                                     </div>
                                 </div>
@@ -73,11 +78,13 @@
                                     <div class="form__group col-12">
                                         <label for="order_notes" class="form__label form__label--2">یادداشت شما</label>
                                         <textarea class="form__input form__input--2 form__input--textarea"
-                                                  id="order_notes" name="order_notes"
+                                                  id="order_notes" name="{{ frm_ordr.order_notes.name }}"
                                                   placeholder="اگر یادداشتی دارید در اینجا وارد کنید. در غیر این صورت این مکان را خالی بگذارید"></textarea>
                                     </div>
                                 </div>
-                                <botton class="btn btn-success" type="submit">{% translate 'Submit' %}</botton>
+                                <button class="btn btn-success" type="submit">
+                                    {% translate 'Submit' %}
+                                </button>
                             </form>
 
                         </div>
