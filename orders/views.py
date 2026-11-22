@@ -1,5 +1,7 @@
 from django.shortcuts import render , redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.utils.translation import gettext as _
 
 from cart.cart import Cart
 from .forms import OrderForm
@@ -13,6 +15,10 @@ def order_create_view(request):
 	"""فرم سفارش را نمایش می‌دهد و سفارش معتبر را برای کاربر ذخیره می‌کند."""
 	order_frm = OrderForm()
 	cart_obj = Cart(request)
+	#
+	# if len(cart_obj) == 0: # اگه سبد خرید خالی بود مستقیما هدایتش کن به صفحه ی لیست محصولات
+	# 	messages.warning(request, _('You can not proceed to checkout page because your cart is empty!'))
+	# 	return redirect('product_list')
 	
 	if request.method == 'POST':
 		order_frm = OrderForm(request.POST,)
@@ -32,6 +38,14 @@ def order_create_view(request):
 					price_prdct_ordr = prdct_itm.price,
 				)
 			cart_obj.clear_cart()
+	
+			
+			"""کلا بیا با هربار سفارش مشتری اطلاعات کاربری اش را
+			 با first , last نامش  در دیتابیس بروزرسانی کن"""
+			request.user.first_name = order_obj.first_nm  #    همون شیئ order ما .first_name  =  first_nm.همون شیئ user ما که در دیتابیس هستش
+			request.user.last_name = order_obj.last_nm  #    همون شیئ order ما .last_name  =  last_nm.همون شیئ user ما که در دیتابیس هستش
+			request.user.save()
+			
 			
 			# پس از ثبت موفق، از ارسال دوبارهٔ فرم هنگام Refresh جلوگیری می‌کند.
 			return redirect(request.path)
