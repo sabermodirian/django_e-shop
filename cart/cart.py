@@ -100,7 +100,8 @@ class Cart:
 	    
 	    for item in cart_obj_cln.values() :
 		    item['total_price'] = item['prdct_yld_obj'].price * item['quantity']
-		    yield item  # Generator
+		    yield item  # Generator that generates these objects to use out(in templates and other foregin apps) :
+		    # total_price ,prdct_yld_obj , quantity
     
     def __len__(self) :
 	      """ در اینجا منظور از len تعداد هر محصول موجود در سبد خرید میباشد"""
