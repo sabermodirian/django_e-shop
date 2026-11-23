@@ -14,7 +14,7 @@
         {% include 'topheader.html' with header_name=x %}
         <!-- Breadcrumb area End -->
          <!-- Main Content Wrapper Start -->
-        <div class="main-content-wrapper">
+    <div class="main-content-wrapper" xmlns="http://www.w3.org/1999/html">
             <div class="page-content-inner ptb--80">
                 <div class="container">
                     <div class="row">
@@ -92,7 +92,10 @@
                                 </div>
                                 <div class="row no-gutters border-top pt--20 mt--20">
                                     <div class="col-sm-6 text-sm-right">
-                                        <button type="submit" class="cart-form__btn">خالی کردن سبد خرید</button>
+                                        <form action="{% url 'cart:clear_cart' %}" method="POST">
+                                            {% csrf_token %}
+                                        <button type="submit" class="cart-form__btn">{% translate 'Empty cart' %}</button>
+                                        </form>
                                     </div>
                                 </div>
 
