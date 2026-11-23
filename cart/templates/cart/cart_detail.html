@@ -41,7 +41,7 @@
                                                     <tr>
                                                         <td class="product-remove text-left"><a href="{% url 'cart:remove_from_cart' item.prdct_yld_obj.id %}"><i class="flaticon flaticon-cross"></i></a></td>
                                                         <td class="product-thumbnail text-left">
-                                                            <img src="assets/img/products/prod-10-70x88.jpg" >
+                                                            <img src="{{ item.prdct_yld_obj.image.url }}" >
                                                         </td>
                                                         <td class="product-name" >
                                                             <h3>
