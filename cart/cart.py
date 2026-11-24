@@ -16,8 +16,8 @@ class Cart:
     def __init__(self, request):
 	    # Initialize Cart class
         self.request = request
-        self.session = request.session
-        
+        self.session = request.session          # سشن واقعی همین کاربر را دریافت می‌کنیم.
+
         cart = self.session.get('cart_obj')  # اگر در session شیئ cart وجود داشت بریزش داخل متغیر cart
         
         if not cart:  # اگر شیئ cart در session مربوطه به این request کاربر وجود نداشت :
@@ -36,7 +36,9 @@ class Cart:
         """
         self.cart = cart
         
-    def add_prdct(self, product, quantity=1, replace_current_quntt = False): # وقتی که False باشد یعنی بعلاوه qntt قبلی مینماید
+    def add_prdct(self, product, quantity=1
+                  , replace_current_quntt = False # وقتی که False باشد یعنی بعلاوه qntt قبلی مینماید
+                  ,show_message=False, ):
 	    """ Add the specified product to the Cart if it exists """
 	    # اینجا متد اضافه‌کردن محصول رو جلو می‌بریم...
 	    prdct_id = str(product.id)
@@ -53,10 +55,17 @@ class Cart:
 
 	    else :
 		    self.cart[prdct_id]['quantity'] += quantity  # وقتی که False باشد یعنی بعلاوه qntt قبلی مینماید
-	    
-	    messages.success(
-		    self.request ,
-		    _('Your product was added to the cart successfully!'))
+		    
+		    # پیام در حالت عادی داخل این متد ساخته نمی‌شود؛
+		    # زیرا این متد هم برای Add و هم برای Refresh استفاده می‌شود.
+		    #
+		    # اگر در بخش دیگری از پروژه لازم بود همین متد به‌تنهایی
+		    # پیام بسازد، می‌توان show_message را True کرد.
+		    if show_message :
+			    messages.success(
+				    self.request ,
+				    _('Your product was added to the cart successfully!')
+			    )
 	    
 	    # هر جا بعداً self.cart سبد خرید را تغییر دادی، این خط را فراموش نکن, و حتما session را آپدیت کن و حتما متد save را فراخوانی کن :
 	    self.save()
@@ -67,7 +76,9 @@ class Cart:
 	    
 	    if prdct_id in self.cart :
 		    del self.cart[prdct_id]
+		    
 		    self.save()
+		    
 		    messages.success(
 			    self.request ,
 			    _("Product removed from cart successfully!")
@@ -107,11 +118,16 @@ class Cart:
 	      """ در اینجا منظور از len تعداد هر محصول موجود در سبد خرید میباشد"""
 	      # return len(self.cart.keys())  # از نظر تنوعی
 	      return sum(item['quantity'] for item in self.cart.values()) # از نظر تعداد هر تنوع محصولی
-	    
-    def is_empty(self):
-	    if  len(cart) == 0:
-		    return False
-	    return True
+    
+    def is_empty(self) :
+	    """
+		بررسی می‌کند که آیا سبد خرید خالی است یا خیر.
+
+		این متد نباید پیام بسازد؛ چون ممکن است
+		در چند ویو یا چند قالب صدا زده شود.
+		"""
+	    return len(self.cart) == 0  #  return not bool(self.cart)
+
     
     def clear_cart(self) :
 	    """ برای پاک کردن محصولات از سبد خرید"""
