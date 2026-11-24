@@ -99,7 +99,8 @@
                                 <div class="col-sm-6 text-sm-right">
                                     <form action="{% url 'cart:clear_cart' %}" method="POST">
                                         {% csrf_token %}
-                                        <button type="submit" class="cart-form__btn">{% translate 'Empty cart' %}</button>
+                                        <button type="submit"
+                                                class="cart-form__btn">{% translate 'Empty cart' %}</button>
                                     </form>
                                 </div>
                             </div>
@@ -131,16 +132,17 @@
                                 </div>
                             </div>
                         </div>
-                        {% if not cart.is_empty%}
+                        {% if  cart.is_empty %}
 
-                           <h2>{% translate "Cart is empty!" %} </h2>
-               <h3>{% translate " Cart is empty! You do not have any products to purchase, so you cannot enter the order registration and payment." %}</h3>
+                            <h2>{% translate "Cart is empty!" %} </h2>
+                            <h3>{% translate " Cart is empty! You do not have any products to purchase, so you cannot enter the order registration and payment." %}</h3>
 
                         {% else %}
- <a href="{% url 'order_create' %}" class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
-                            {% translate 'CheckOut' %}                        {% endif %}
-                                            </a>
-
+                            <a href="{% url 'order_create' %}"
+                               class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
+                                {% translate 'CheckOut' %}
+                            </a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
