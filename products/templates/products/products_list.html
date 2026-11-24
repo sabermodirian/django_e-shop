@@ -77,23 +77,26 @@
                                                                 <span class="money text-success">{{ product.price|intcomma:False|translate_number }} {% trans "$" %}</span>
                                                                 <span class="money-separator">-</span>
                                                                 <span class="old-price text-danger">
-                                                                <span class="money text-danger">{{product.price|intcomma:False|translate_number }} {% trans "$" %}</span>
+                                                                <span class="money text-danger">{{ product.price|intcomma:False|translate_number }} {% trans "$" %}</span>
                                                             </span>
                                                             </div>
-                                                            <form action="{% url 'cart:adding_to_cart' product.id %}"
+                                                            <form action="{% url 'cart:adding_to_cart' product_id=product.id %}"
                                                                   method="POST">
                                                                 {% csrf_token %}
+
                                                                 <div class="quantity">
                                                                     <input type="number" class="quantity-input"
-                                                                           name="quantity" id="qty" value="0"
-                                                                           min="0" max="30">
+                                                                           name="quantity" id="qty" value="1"
+                                                                           min="1" max="30">
                                                                 </div>
-                                                                <button type="submit"
+
+                                                                <button type="submit"#}
                                                                         class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
                                                                     {% translate 'Add To Cart' %}
                                                                 </button>
-
                                                             </form>
+
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -121,8 +124,6 @@
         </div>
     </div>
     <!-- Main Content Wrapper Start -->
-
-
 
     <!-- Search form Popup Start -->
     <div class="searchform__popup" id="searchForm">

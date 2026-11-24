@@ -8,6 +8,8 @@ from products.models import Product
 from .cart import Cart
 from .forms import AddToCartProductForm
 
+
+
 # Create your views here.
 
 def cart_detail_view(request):
@@ -26,16 +28,46 @@ def cart_detail_view(request):
 
 @require_POST # این ویو فقط حق دارد بصورت POST Request صدا زده شود
 def add_to_cart_view(request, product_id):
-	cart_obj = Cart(request)
-	
-	prdct_obj = get_object_or_404(Product, id = product_id)
-	cart_form = AddToCartProductForm(request.POST)
-	
-	if cart_form.is_valid():
-		cleaned_data = cart_form.cleaned_data
-		qntty = cleaned_data['quantity']
-		cart_obj.add_prdct(prdct_obj,qntty, replace_current_quntt = cleaned_data['inplace'])
-	return redirect('product_list')
+    cart_obj = Cart(request)
+
+    prdct_obj = get_object_or_404(
+        Product,
+        id=product_id
+    )
+
+    cart_form = AddToCartProductForm(request.POST)
+
+    if cart_form.is_valid():
+        cleaned_data = cart_form.cleaned_data
+        qntty = cleaned_data['quantity']
+
+        cart_obj.add_prdct(
+            prdct_obj,
+            qntty,
+            replace_current_quntt=cleaned_data['inplace']
+        )
+
+    return redirect('product_list')
+
+# @require_PUT
+def update_cart_view(request, product_id):
+    cart_obj = Cart(request)
+    prdct_obj = get_object_or_404( Product,id=product_id)
+    cart_form = AddToCartProductForm(request.POST)
+
+    if request.method == 'POST' and cart_form.is_valid():
+        cleaned_data = cart_form.cleaned_data
+        qntty = cleaned_data['quantity']
+        cart_obj.add_prdct(prdct_obj,qntty, replace_current_quntt=True)
+    return redirect('cart:cart_detail')
+
+"""
+replace_current_qntt=True  :نکتهٔ مهم اینجاست
+چون در Refresh می‌خواهیم مقدار قبلی جایگزین شود،
+ نه اینکه دوباره به مقدار قبلی اضافه شود. اگر این مقدار را False بگذاری،
+  کاربر مثلاً عدد ۳ وارد می‌کند و سبد ممکن است دوباره ۳ تا روی مقدار قبلی اضافه کند؛
+   سبد خرید هم تبدیل می‌شود به ماشین تولید محصول، کاملاً بی‌خبر از اقتصاد خانواده! 😄
+"""
 
 
 def remove_from_cart_view(request, product_id):
