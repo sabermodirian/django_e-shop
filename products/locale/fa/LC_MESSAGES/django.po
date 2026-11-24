@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-21 18:59+0330\n"
+"POT-Creation-Date: 2026-11-24 19:23+0330\n"
 "PO-Revision-Date: 2026-11-23 12:35+0330\n"
 "Last-Translator: sxds sss <aria@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,134 +18,133 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.3\n"
 
-#: .\products\models.py:14
+#: .\models.py:14
 msgid "Product's Name"
 msgstr "نام محصول"
 
-#: .\products\models.py:18
+#: .\models.py:18
 msgid "Price"
 msgstr "قیمت"
 
-#: .\products\models.py:19
+#: .\models.py:19
 msgid "confirmed Product"
 msgstr "تایید شده"
 
-#: .\products\models.py:20
-#| msgid "Product's Name"
+#: .\models.py:20
 msgid "Product's Image"
 msgstr " تصویر محصول"
 
-#: .\products\models.py:26
+#: .\models.py:26
 msgid "Product Created At"
 msgstr " محصول ایجاد شده در "
 
-#: .\products\models.py:27
+#: .\models.py:27
 msgid "Product Modified At"
 msgstr "تغییر یافته در"
 
-#: .\products\models.py:49
+#: .\models.py:49
 msgid "Product's Comment"
 msgstr "محصول مورد نظر"
 
-#: .\products\models.py:51
+#: .\models.py:51
 msgid "Comment's Author"
 msgstr "درج نظر توسط"
 
-#: .\products\models.py:52
+#: .\models.py:52
 msgid "Comment's Text"
 msgstr "متن دیدگاه"
 
-#: .\products\models.py:53
+#: .\models.py:53
 msgid "Very Bad"
 msgstr "خیلی بد"
 
-#: .\products\models.py:53
+#: .\models.py:53
 msgid "Bad"
 msgstr "بد"
 
-#: .\products\models.py:53
+#: .\models.py:53
 msgid "Normal"
 msgstr "معمولی"
 
-#: .\products\models.py:53
+#: .\models.py:53
 msgid "Good"
 msgstr "خوب"
 
-#: .\products\models.py:54
+#: .\models.py:54
 msgid "Perfect"
 msgstr "عالی"
 
-#: .\products\models.py:56
+#: .\models.py:56
 msgid "What's Your Comment's Point Stars"
 msgstr "روی این محصول چه دیدگاهی دارید "
 
-#: .\products\models.py:57
+#: .\models.py:57
 msgid "Comment Created At"
 msgstr "نظر ایجاد شده در"
 
-#: .\products\models.py:58
+#: .\models.py:58
 msgid "Comment Modified At"
 msgstr "نظر ویرایش شده در"
 
-#: .\products\models.py:63
+#: .\models.py:63
 msgid "Confirmed Comment"
 msgstr "نظر تایید شده است"
 
-#: .\products\templates\products\product_details.html:48
-#: .\products\templates\products\product_details.html:50
-#: .\products\templates\products\products_list.html:77
-#: .\products\templates\products\products_list.html:80
+#: .\templates\products\product_details.html:48
+#: .\templates\products\product_details.html:50
+#: .\templates\products\products_list.html:77
+#: .\templates\products\products_list.html:80
 msgid "$"
 msgstr "تومان"
 
-#: .\products\templates\products\product_details.html:68
-#: .\products\templates\products\products_list.html:93
+#: .\templates\products\product_details.html:68
+#: .\templates\products\products_list.html:95
 msgid "Add To Cart"
 msgstr "اضافه به سبد خرید"
 
-#: .\products\templates\products\product_details.html:84
+#: .\templates\products\product_details.html:84
 msgid "Categories"
 msgstr "دسته بندی ها"
 
-#: .\products\templates\products\product_details.html:100
+#: .\templates\products\product_details.html:100
 msgid "Product Description"
 msgstr "توضیحات محصول"
 
-#: .\products\templates\products\product_details.html:109
+#: .\templates\products\product_details.html:109
 msgid "Registered comments"
 msgstr "نظرات ثبت شده"
 
-#: .\products\templates\products\product_details.html:149
-#: .\products\templates\products\product_details.html:150
+#: .\templates\products\product_details.html:149
+#: .\templates\products\product_details.html:150
 msgid "Comment(s) for"
 msgstr "نظر برای"
 
-#: .\products\templates\products\product_details.html:149
+#: .\templates\products\product_details.html:149
 msgid "sent done."
 msgstr "ارسال شده است"
 
-#: .\products\templates\products\product_details.html:150
+#: .\templates\products\product_details.html:150
 msgid "Confirmed done."
 msgstr "تایید شده است"
 
-#: .\products\templates\products\product_details.html:192
+#: .\templates\products\product_details.html:192
 msgid "Write your comment"
 msgstr "نظر خود را بنویسید"
 
-#: .\products\templates\products\product_details.html:198
+#: .\templates\products\product_details.html:198
 msgid "Submit"
 msgstr "ارسال نظر"
 
-#: .\products\templates\products\product_details.html:202
+#: .\templates\products\product_details.html:202
 msgid "To write your comment please"
 msgstr ""
 "برای درج و ثبت و ارسال نظر خود برای این کالا لطفا ورود نمایید با تشکر : "
 
-#: .\products\templates\products\product_details.html:204
+#: .\templates\products\product_details.html:204
 msgid "Login"
 msgstr "ورود"
 
-#: .\products\views.py:79
+#: .\views.py:79
 msgid "Comment Successfully Created!"
 msgstr "نظر شما با موفقیت ایجاد , ارسال و ثبت شد."
 

@@ -84,13 +84,13 @@
                                                                   method="POST">
                                                                 {% csrf_token %}
 
-                                                                <div class="quantity">
-                                                                    <input type="number" class="quantity-input"
+{#                                                                <div class="quantity">#}
+                                                                    <input type="hidden" class="quantity-input"
                                                                            name="quantity" id="qty" value="1"
                                                                            min="1" max="30">
-                                                                </div>
+{#                                                                </div>#}
 
-                                                                <button type="submit"#}
+                                                                <button type="submit"
                                                                         class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
                                                                     {% translate 'Add To Cart' %}
                                                                 </button>
