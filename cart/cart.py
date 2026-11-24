@@ -108,6 +108,10 @@ class Cart:
 	      # return len(self.cart.keys())  # از نظر تنوعی
 	      return sum(item['quantity'] for item in self.cart.values()) # از نظر تعداد هر تنوع محصولی
 	    
+    def is_empty(self):
+	    if  len(cart) == 0:
+		    return False
+	    return True
     
     def clear_cart(self) :
 	    """ برای پاک کردن محصولات از سبد خرید"""
